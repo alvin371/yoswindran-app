@@ -1,0 +1,795 @@
+<html lang="en">
+
+<head>
+    <title>LPSE PDAM Kota Makassar:
+        Cari Paket
+    </title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=1024">
+    <link rel="Shortcut Icon" href="/eproc4/public/images/4.3.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="/eproc4/public/bootstrap/css/bootstrap.min.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="/eproc4/public/bootstrap/css/font-awesome.min.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="/eproc4/public/bootstrap/css/bootstrap-dialog.min.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="/eproc4/public/bootstrap-select/bootstrap-select.min.css" type="text/css"
+        media="screen">
+    <link rel="stylesheet" href="/eproc4/public/stylesheets/application.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="/eproc4/public/stylesheets/strength.css" type="text/css" media="screen">
+
+    <link href="/eproc4/public/bootstrap/css/bootstrap-datatables.min.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        .faq-cat-tabs li a {
+            background-color: #ffffff;
+            border: 1px solid #dddddd;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Pesan jika fitur javascript tidak diaktifkan -->
+    <noscript>
+        <div class="alert alert-danger text-center">
+            <h5>Untuk tampilan aplikasi SPSE yang lebih baik, harap aktifkan fitur javascript pada browser anda</h5>
+        </div>
+    </noscript>
+
+    <div id="header" class="container">
+        <div id="headerContent">
+            <img class="pull-left" alt="LPSE" src="/eproc4/public/images/imgng/instansi-logo.png">
+            <img class="pull-right" alt="LPSE" src="/eproc4/public/images/imgng/lpse-nama.png">
+            <img class="pull-right" alt="LPSE" src="/eproc4/public/images/imgng/lpse-logo.png">
+            <div id="systemMessage"></div>
+        </div>
+    </div>
+    <div class="notifications top-right"></div>
+    <div id="menu">
+        <div class="topmenu">
+            <div class="container">
+                <ul class="nav navbar-nav">
+                    <li><a href="/eproc4/">BERANDA</a></li>
+                    <li class="active"><a href="/eproc4/lelang">CARI PAKET</a></li>
+                    <li><a href="https://jdih.lkpp.go.id/" target="_blank">REGULASI</a></li>
+                    <li><a href="/eproc4/publik/special">KONTEN KHUSUS</a></li>
+                    <li><a href="http://inaproc.id/daftar-hitam" target="_blank">DAFTAR HITAM</a></li>
+                    <li><a href="/eproc4/publik/kontakkami">KONTAK KAMI</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a id="daftar" href="/eproc4/publik/mendaftaremail">PENDAFTARAN PENYEDIA</a></li>
+                    <li class="dropdown"><a id="login" href="#" class="dropdown-toggle" data-toggle="dropdown">LOGIN <b
+                                class="caret"></b></a>
+                        <div class="dropdown-menu loginForm" id="loginForm"><img
+                                src="/eproc4/public/images/imgng/loading.gif"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="notifBar container text-right">
+
+    </div>
+
+
+    <div id="main" class="container">
+
+
+
+
+
+
+
+
+
+
+        <div class="container">
+            <ul id="tabs" class="nav nav-tabs faq-cat-tabs" role="tablist">
+                <li class="active">
+                    <a href="#" data-toggle="tab">Tender</a>
+                </li>
+                <li>
+                    <a href="/eproc4/nontender">Non Tender</a>
+                </li>
+            </ul>
+
+            <div class="content tab-content">
+                <div class="tab-pane active" id="non-etendering">
+                    <div class="btn-group" style="margin:10px 0px;">
+
+                        <a href="#" class="btn btn-default btn-primary kategori" value="PENGADAAN_BARANG">Pengadaan
+                            Barang</a>
+
+                        <a href="#" class="btn btn-default btn-primary kategori" value="PEKERJAAN_KONSTRUKSI">Pekerjaan
+                            Konstruksi</a>
+
+                        <a href="#" class="btn btn-default btn-primary kategori" value="KONSULTANSI">Jasa Konsultansi
+                            Badan Usaha</a>
+
+                        <a href="#" class="btn btn-default btn-primary kategori" value="KONSULTANSI_PERORANGAN">Jasa
+                            Konsultansi Perorangan</a>
+
+                        <a href="#" class="btn btn-default btn-primary kategori" value="JASA_LAINNYA">Jasa Lainnya</a>
+
+                        <a href="#" class="btn btn-default btn-primary kategori">Semua</a>
+                    </div>
+                    <div class="form-inline" style="margin-bottom: 10px;">
+                        <div class="form-group">
+                            <div>
+                                <label>Pencarian Penyedia:&nbsp;&nbsp;</label>
+                                <input placeholder="Nama Penyedia" type="text" class="form-control" name="rekanan"
+                                    id="rkn_nama" style="width: 250px">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tbllelang_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="dataTables_length" id="tbllelang_length"><label>Tampilan <select
+                                            name="tbllelang_length" aria-controls="tbllelang"
+                                            class="form-control input-sm">
+                                            <option value="25">25</option>
+                                            <option value="50">50</option>
+                                            <option value="100">100</option>
+                                        </select> data</label></div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div id="tbllelang_filter" class="dataTables_filter"><label>Cari:<input type="search"
+                                            class="form-control input-sm" placeholder=""
+                                            aria-controls="tbllelang"></label></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table id="tbllelang" class="table table-condensed dataTable no-footer" role="grid"
+                                    aria-describedby="tbllelang_info" style="width: 1120px;">
+                                    <thead>
+                                        <tr role="row">
+                                            <th class="sorting_desc" tabindex="0" aria-controls="tbllelang" rowspan="1"
+                                                colspan="1" aria-sort="descending"
+                                                aria-label="Kode: activate to sort column ascending"
+                                                style="width: 30px;">Kode</th>
+                                            <th class="sorting" tabindex="0" aria-controls="tbllelang" rowspan="1"
+                                                colspan="1" aria-label="Nama Paket: activate to sort column ascending"
+                                                style="width: 838px;">Nama Paket</th>
+                                            <th class="sorting" tabindex="0" aria-controls="tbllelang" rowspan="1"
+                                                colspan="1" aria-label="Instansi: activate to sort column ascending"
+                                                style="width: 67px;">Instansi</th>
+                                            <th class="sorting_disabled" rowspan="1" colspan="1" aria-label="Tahap"
+                                                style="width: 35px;">Tahap</th>
+                                            <th class="sorting" tabindex="0" aria-controls="tbllelang" rowspan="1"
+                                                colspan="1" aria-label="HPS: activate to sort column ascending"
+                                                style="width: 25px;">HPS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1">184743</td>
+                                            <td>
+                                                <p><a href="/eproc4/lelang/184743/pengumumanlelang"
+                                                        target="_blank">PENGADAAN METER AIR UNTUK PENGGANTIAN METER AIR
+                                                        RUTIN 5 TAHUN KEATAS DENGAN METODE PEMBAYARAN SECARA CICILAN</a>
+                                                    <span class="label label-danger">spse 4.3</span> </p>
+                                                <p>Pengadaan Barang - TA 2021,2022 - Tender - Pascakualifikasi Satu File
+                                                    Harga Terendah Sistem Gugur</p>
+                                                <p>Nilai Kontrak : Nilai Kontrak belum dibuat</p>
+                                            </td>
+                                            <td>PDAM Tirta Dharma Kota Makassar</td>
+                                            <td><a target="_blank" href="/eproc4/lelang/184743/jadwal">Tender Sudah
+                                                    Selesai</a></td>
+                                            <td>28 M</td>
+                                        </tr>
+                                        <tr role="row" class="even">
+                                            <td class="sorting_1">183743</td>
+                                            <td>
+                                                <p><a href="/eproc4/lelang/183743/pengumumanlelang"
+                                                        target="_blank">PENATAAN BAK PRASEDIMENTASI IPA I RATULANGI
+                                                        PERUMDA AIR MINUM KOTA MAKASSAR</a> <span
+                                                        class="label label-danger">spse 4.3</span> </p>
+                                                <p>Pekerjaan Konstruksi - TA 2020 - Tender - Pascakualifikasi Satu File
+                                                    Harga Terendah Sistem Gugur</p>
+                                                <p>Nilai Kontrak : Nilai Kontrak belum dibuat</p>
+                                            </td>
+                                            <td>PDAM Tirta Dharma Kota Makassar</td>
+                                            <td><a target="_blank" href="/eproc4/lelang/183743/jadwal">Tender Sudah
+                                                    Selesai</a></td>
+                                            <td>991,7 Jt</td>
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1">182743</td>
+                                            <td>
+                                                <p><a href="/eproc4/lelang/182743/pengumumanlelang"
+                                                        target="_blank">PEKERJAAN KONEKSI DAN REHAB JARINGAN PIPA
+                                                        DISTRIBUSI PADA JL. PERINTIS KEMERDEKAAN DEPAN AURI</a> <span
+                                                        class="label label-danger">spse 4.3</span> </p>
+                                                <p>Pekerjaan Konstruksi - TA 2020 - Tender - Pascakualifikasi Satu File
+                                                    Harga Terendah Sistem Gugur</p>
+                                                <p>Nilai Kontrak : Nilai Kontrak belum dibuat</p>
+                                            </td>
+                                            <td>PDAM Tirta Dharma Kota Makassar</td>
+                                            <td><a target="_blank" href="/eproc4/lelang/182743/jadwal">Tender Sudah
+                                                    Selesai</a></td>
+                                            <td>832,9 Jt</td>
+                                        </tr>
+                                        <tr role="row" class="even">
+                                            <td class="sorting_1">181743</td>
+                                            <td>
+                                                <p><a href="/eproc4/lelang/181743/pengumumanlelang"
+                                                        target="_blank">PENATAAN TAMAN DAN RUANG TERBUKA HIJAU (RTH)
+                                                        PERUMDA AIR MINUM KOTA MAKASSAR</a> <span
+                                                        class="label label-danger">spse 4.3</span> </p>
+                                                <p>Pekerjaan Konstruksi - TA 2020 - Tender - Pascakualifikasi Satu File
+                                                    Harga Terendah Sistem Gugur</p>
+                                                <p>Nilai Kontrak : Nilai Kontrak belum dibuat</p>
+                                            </td>
+                                            <td>PDAM Tirta Dharma Kota Makassar</td>
+                                            <td><a target="_blank" href="/eproc4/lelang/181743/jadwal">Tender Sudah
+                                                    Selesai</a></td>
+                                            <td>6,5 M</td>
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1">180743</td>
+                                            <td>
+                                                <p><a href="/eproc4/lelang/180743/pengumumanlelang"
+                                                        target="_blank">PEKERJAAN PERBAIKAN WTP 50 LTR/DTK DAN
+                                                        PEMBANGUNAN RESERVOAR KAPASITAS 450 M3 IPA III ANTANG</a> <span
+                                                        class="label label-danger">spse 4.3</span> </p>
+                                                <p>Pekerjaan Konstruksi - TA 2020 - Tender - Pascakualifikasi Satu File
+                                                    Harga Terendah Sistem Gugur</p>
+                                                <p>Nilai Kontrak : Nilai Kontrak belum dibuat</p>
+                                            </td>
+                                            <td>PDAM Tirta Dharma Kota Makassar</td>
+                                            <td><a target="_blank" href="/eproc4/lelang/180743/jadwal">Tender Sudah
+                                                    Selesai</a></td>
+                                            <td>2,2 M</td>
+                                        </tr>
+                                        <tr role="row" class="even">
+                                            <td class="sorting_1">176743</td>
+                                            <td>
+                                                <p><a href="/eproc4/lelang/176743/pengumumanlelang"
+                                                        target="_blank">PENGADAAN DAN PEMASANGAN JARINGAN PIPA
+                                                        DISTRIBUSI Ø 63 mm, 90 mm, 110 mm, 160 mm HDPE, (WILAYAH
+                                                        PELAYANAN I KANAL JL. SATANDO), (WILAYAH PELAYANAN II JL.
+                                                        SAHABAT TAHAP 1), (WILAYAH PELAYANAN II UNTUK PERBAIKAN TEKANAN)
+                                                        (KOMPLEKS BUMI TAMALANREA PERMAI - JL. KEDAMAIAN, MAKASSAR)</a>
+                                                    <span class="label label-danger">spse 4.3</span> </p>
+                                                <p>Pekerjaan Konstruksi - TA 2020 - Tender - Pascakualifikasi Satu File
+                                                    Harga Terendah Sistem Gugur</p>
+                                                <p>Nilai Kontrak : Nilai Kontrak belum dibuat</p>
+                                            </td>
+                                            <td>PDAM Tirta Dharma Kota Makassar</td>
+                                            <td><a target="_blank" href="/eproc4/lelang/176743/jadwal">Tender Sudah
+                                                    Selesai</a></td>
+                                            <td>2,4 M</td>
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1">174743</td>
+                                            <td>
+                                                <p><a href="/eproc4/lelang/174743/pengumumanlelang"
+                                                        target="_blank">PEMASANGAN JARINGAN PIPA DISTRIBUSI Ø 160 MM
+                                                        HDPE, WILAYAH PELAYANAN I JL. BARUKANG-BARUKANG UTARA,
+                                                        MAKASSAR</a> <span class="label label-danger">spse 4.3</span>
+                                                </p>
+                                                <p>Pekerjaan Konstruksi - TA 2020 - Tender - Pascakualifikasi Satu File
+                                                    Harga Terendah Sistem Gugur</p>
+                                                <p>Nilai Kontrak : Nilai Kontrak belum dibuat</p>
+                                            </td>
+                                            <td>PDAM Tirta Dharma Kota Makassar</td>
+                                            <td><a target="_blank" href="/eproc4/lelang/174743/jadwal">Tender Sudah
+                                                    Selesai</a></td>
+                                            <td>952,6 Jt</td>
+                                        </tr>
+                                        <tr role="row" class="even">
+                                            <td class="sorting_1">173743</td>
+                                            <td>
+                                                <p><a href="/eproc4/lelang/173743/pengumumanlelang"
+                                                        target="_blank">PENGADAAN METER ½” UNTUK PENGGANTIAN METER RUTIN
+                                                        USIA 5 TAHUN KEATAS DENGAN METODE PEMBAYARAN SECARA CICILAN</a>
+                                                    <span class="label label-danger">spse 4.3</span> </p>
+                                                <p>Pengadaan Barang - TA 2020 - Tender - Pascakualifikasi Satu File
+                                                    Harga Terendah Sistem Gugur</p>
+                                                <p>Nilai Kontrak : Nilai Kontrak belum dibuat</p>
+                                            </td>
+                                            <td>PDAM Tirta Dharma Kota Makassar</td>
+                                            <td><a target="_blank" href="/eproc4/lelang/173743/jadwal">Tender Sudah
+                                                    Selesai</a></td>
+                                            <td>28,4 M</td>
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1">171743</td>
+                                            <td>
+                                                <p><a href="/eproc4/lelang/171743/pengumumanlelang"
+                                                        target="_blank">REHABILITASI JARINGAN PIPA DISTRIBUSI Ø 63 MM,
+                                                        90 MM, 110 MM, 160 MM HDPE,WILAYAH PELAYANAN IV, ZONE 5 B - JL.
+                                                        ANUANG - JL. LANTO DG. PASEWANG - JL. DOMBA - LEMBU DAN JL.
+                                                        GAJAH, MAKASSAR</a> <span class="label label-danger">spse
+                                                        4.3</span> </p>
+                                                <p>Pekerjaan Konstruksi - TA 2020 - Tender - Pascakualifikasi Satu File
+                                                    Harga Terendah Sistem Gugur</p>
+                                                <p>Nilai Kontrak : Nilai Kontrak belum dibuat</p>
+                                            </td>
+                                            <td>PDAM Tirta Dharma Kota Makassar</td>
+                                            <td><a target="_blank" href="/eproc4/lelang/171743/jadwal">Tender Sudah
+                                                    Selesai</a></td>
+                                            <td>1,2 M</td>
+                                        </tr>
+                                        <tr role="row" class="even">
+                                            <td class="sorting_1">170743</td>
+                                            <td>
+                                                <p><a href="/eproc4/lelang/170743/pengumumanlelang"
+                                                        target="_blank">PENGADAAN DAN PEMASANGAN JARINGAN PIPA
+                                                        DISTRIBUSI Dia.200 mm HDPE WILAYAH PELAYANAN II JL.POROS BTP
+                                                        (BOOSTER PUMP BTP-JL.PACCERAKANG), MAKASSAR</a> <span
+                                                        class="label label-danger">spse 4.3</span> </p>
+                                                <p>Pekerjaan Konstruksi - TA 2020 - Tender - Pascakualifikasi Satu File
+                                                    Harga Terendah Sistem Gugur</p>
+                                                <p>Nilai Kontrak : Nilai Kontrak belum dibuat</p>
+                                            </td>
+                                            <td>PDAM Tirta Dharma Kota Makassar</td>
+                                            <td><a target="_blank" href="/eproc4/lelang/170743/jadwal">Tender Sudah
+                                                    Selesai</a></td>
+                                            <td>4,2 M</td>
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1">169743</td>
+                                            <td>
+                                                <p><a href="/eproc4/lelang/169743/pengumumanlelang"
+                                                        target="_blank">PENGADAAN DAN PEMASANGAN JARINGAN PIPA
+                                                        DISTRIBUSI Ø 160mm, 90mm HDPE WILAYAH PELAYANAN II, JL.PINTU NOL
+                                                        / POLTEK, MAKASSAR</a> <span class="label label-danger">spse
+                                                        4.3</span> </p>
+                                                <p>Pekerjaan Konstruksi - TA 2020 - Tender - Pascakualifikasi Satu File
+                                                    Harga Terendah Sistem Gugur</p>
+                                                <p>Nilai Kontrak : Nilai Kontrak belum dibuat</p>
+                                            </td>
+                                            <td>PDAM Tirta Dharma Kota Makassar</td>
+                                            <td><a target="_blank" href="/eproc4/lelang/169743/jadwal">Tender Sudah
+                                                    Selesai</a></td>
+                                            <td>1,2 M</td>
+                                        </tr>
+                                        <tr role="row" class="even">
+                                            <td class="sorting_1">168743</td>
+                                            <td>
+                                                <p><a href="/eproc4/lelang/168743/pengumumanlelang"
+                                                        target="_blank">KONEKSI, PENGADAAN DAN PEMASANGAN JARINGAN PIPA
+                                                        DISTRIBUSI Dia. 160 mm DAN 90 mm JL. TAMANGAPA RAYA 3 DAN
+                                                        KOMPLEKS MAKKIO BAJI, MAKASSAR WILAYAH PELAYANAN III</a> <span
+                                                        class="label label-danger">spse 4.3</span> </p>
+                                                <p>Pekerjaan Konstruksi - TA 2020 - Tender - Pascakualifikasi Satu File
+                                                    Harga Terendah Sistem Gugur</p>
+                                                <p>Nilai Kontrak : Nilai Kontrak belum dibuat</p>
+                                            </td>
+                                            <td>PDAM Tirta Dharma Kota Makassar</td>
+                                            <td><a target="_blank" href="/eproc4/lelang/168743/jadwal">Tender Sudah
+                                                    Selesai</a></td>
+                                            <td>746,4 Jt</td>
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1">167743</td>
+                                            <td>
+                                                <p><a href="/eproc4/lelang/167743/pengumumanlelang"
+                                                        target="_blank">PENGADAAN DAN PEMASANGAN DATA LOGGER</a> <span
+                                                        class="label label-danger">spse 4.3</span> </p>
+                                                <p>Pengadaan Barang - TA 2020 - Tender - Pascakualifikasi Satu File
+                                                    Harga Terendah Sistem Gugur</p>
+                                                <p>Nilai Kontrak : Nilai Kontrak belum dibuat</p>
+                                            </td>
+                                            <td>PDAM Tirta Dharma Kota Makassar</td>
+                                            <td><a target="_blank" href="/eproc4/lelang/167743/jadwal">Tender Sudah
+                                                    Selesai</a></td>
+                                            <td>1,7 M</td>
+                                        </tr>
+                                        <tr role="row" class="even">
+                                            <td class="sorting_1">166743</td>
+                                            <td>
+                                                <p><a href="/eproc4/lelang/166743/pengumumanlelang"
+                                                        target="_blank">PEMASANGAN JARINGAN PIPA DISTRIBUSI Dia. 200 mm
+                                                        HDPE , JL. SALODONG, MAKASSAR</a> <span
+                                                        class="label label-danger">spse 4.3</span> </p>
+                                                <p>Pekerjaan Konstruksi - TA 2020 - Tender - Pascakualifikasi Satu File
+                                                    Harga Terendah Sistem Gugur</p>
+                                                <p>Nilai Kontrak : Nilai Kontrak belum dibuat</p>
+                                            </td>
+                                            <td>PDAM Tirta Dharma Kota Makassar</td>
+                                            <td><a target="_blank" href="/eproc4/lelang/166743/jadwal">Tender Sudah
+                                                    Selesai</a></td>
+                                            <td>2,3 M</td>
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1">163743</td>
+                                            <td>
+                                                <p><a href="/eproc4/lelang/163743/pengumumanlelang"
+                                                        target="_blank">PENGADAAN MATERIAL PEMBENAHAN PIPA SAMBUNGAN
+                                                        RUMAH</a> <span class="label label-danger">spse 4.3</span> </p>
+                                                <p>Pengadaan Barang - TA 2020 - Tender - Pascakualifikasi Satu File
+                                                    Harga Terendah Sistem Gugur</p>
+                                                <p>Nilai Kontrak : Nilai Kontrak belum dibuat</p>
+                                            </td>
+                                            <td>PDAM Tirta Dharma Kota Makassar</td>
+                                            <td><a target="_blank" href="/eproc4/lelang/163743/jadwal">Tender Sudah
+                                                    Selesai</a></td>
+                                            <td>1,2 M</td>
+                                        </tr>
+                                        <tr role="row" class="even">
+                                            <td class="sorting_1">161743</td>
+                                            <td>
+                                                <p><a href="/eproc4/lelang/161743/pengumumanlelang"
+                                                        target="_blank">PENGADAAN REHAB METER AIR SAMBUNGAN RUMAH</a>
+                                                    <span class="label label-danger">spse 4.3</span> </p>
+                                                <p>Pengadaan Barang - TA 2020 - Tender - Pascakualifikasi Satu File
+                                                    Harga Terendah Sistem Gugur</p>
+                                                <p>Nilai Kontrak : Nilai Kontrak belum dibuat</p>
+                                            </td>
+                                            <td>PDAM Tirta Dharma Kota Makassar</td>
+                                            <td><a target="_blank" href="/eproc4/lelang/161743/jadwal">Tender Sudah
+                                                    Selesai</a></td>
+                                            <td>717,8 Jt</td>
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1">157743</td>
+                                            <td>
+                                                <p><a href="/eproc4/lelang/157743/pengumumanlelang"
+                                                        target="_blank">PENGADAAN METER RUTIN 1/2</a> <span
+                                                        class="label label-danger">spse 4.3</span> </p>
+                                                <p>Pengadaan Barang - TA 2020 - Tender - Pascakualifikasi Satu File
+                                                    Harga Terendah Sistem Gugur</p>
+                                                <p>Nilai Kontrak : Nilai Kontrak belum dibuat</p>
+                                            </td>
+                                            <td>PDAM Tirta Dharma Kota Makassar</td>
+                                            <td><a target="_blank" href="/eproc4/lelang/157743/jadwal">Tender Sudah
+                                                    Selesai</a></td>
+                                            <td>4,5 M</td>
+                                        </tr>
+                                        <tr role="row" class="even">
+                                            <td class="sorting_1">153743</td>
+                                            <td>
+                                                <p><a href="/eproc4/lelang/153743/pengumumanlelang"
+                                                        target="_blank">PEMASANGAN JARINGAN PIPA DISTRIBUSI Dia.63 mm,
+                                                        90 mm, 110 mm, 160 mm HDPE ,WILAYAH PELAYANAN II, PERUMAHAN
+                                                        BUKIT KHATULISTIWA, JL. PERINTIS KEMERDEKAAN, MAKASSAR</a> <span
+                                                        class="label label-danger">spse 4.3</span> </p>
+                                                <p>Pekerjaan Konstruksi - TA 2020 - Tender - Pascakualifikasi Satu File
+                                                    Harga Terendah Sistem Gugur</p>
+                                                <p>Nilai Kontrak : Nilai Kontrak belum dibuat</p>
+                                            </td>
+                                            <td>PDAM Tirta Dharma Kota Makassar</td>
+                                            <td><a target="_blank" href="/eproc4/lelang/153743/jadwal">Tender Sudah
+                                                    Selesai</a></td>
+                                            <td>1,9 M</td>
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1">152743</td>
+                                            <td>
+                                                <p><a href="/eproc4/lelang/152743/pengumumanlelang"
+                                                        target="_blank">PENGADAAN SEWA KENDARAAN OPERASIONAL PEJABAT
+                                                        STRUKTURAL PERUMDA AIR MNUM KOTA MAKASSAR</a> <span
+                                                        class="label label-danger">spse 4.3</span> </p>
+                                                <p>Pengadaan Barang - TA 2020 - Tender - Pascakualifikasi Satu File
+                                                    Harga Terendah Sistem Gugur</p>
+                                                <p>Nilai Kontrak : Nilai Kontrak belum dibuat</p>
+                                            </td>
+                                            <td>PDAM Tirta Dharma Kota Makassar</td>
+                                            <td><a target="_blank" href="/eproc4/lelang/152743/jadwal">Tender Sudah
+                                                    Selesai</a></td>
+                                            <td>115,5 Jt</td>
+                                        </tr>
+                                        <tr role="row" class="even">
+                                            <td class="sorting_1">151743</td>
+                                            <td>
+                                                <p><a href="/eproc4/lelang/151743/pengumumanlelang"
+                                                        target="_blank">RELOKASI PEMASANGAN JARINGAN PIPA DISTRIBUSI Ø
+                                                        160mm, 110mm, 90mm DAN 63mm HDPE PANAKKUKANG BLOK 28, 29 DAN 30,
+                                                        MAKASSAR <span class="label label-warning">Tender
+                                                            Ulang</span></a> <span class="label label-danger">spse
+                                                        4.3</span> </p>
+                                                <p>Pekerjaan Konstruksi - TA 2020 - Tender - Pascakualifikasi Satu File
+                                                    Harga Terendah Sistem Gugur</p>
+                                                <p>Nilai Kontrak : Nilai Kontrak belum dibuat</p>
+                                            </td>
+                                            <td>PDAM Tirta Dharma Kota Makassar</td>
+                                            <td><a target="_blank" href="/eproc4/lelang/151743/jadwal">Tender Sudah
+                                                    Selesai</a></td>
+                                            <td>1,3 M</td>
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1">150743</td>
+                                            <td>
+                                                <p><a href="/eproc4/lelang/150743/pengumumanlelang"
+                                                        target="_blank">RELOKASI PEMASANGAN JARINGAN PIPA DISTRIBUSI Ø
+                                                        110mm, 90mm DAN 63mm HDPE ASRAMA POLISI (ASPOL) TODDOLPULI RAYA
+                                                        DAN RELOKASI PEMASANGAN JARINGAN PIPA DISTRIBUSI Ø 110mm, 90mm
+                                                        KOMPLEKS BERINGIN, KOTA MAKASSAR</a> <span
+                                                        class="label label-danger">spse 4.3</span> </p>
+                                                <p>Pekerjaan Konstruksi - TA 2020 - Tender - Pascakualifikasi Satu File
+                                                    Harga Terendah Sistem Gugur</p>
+                                                <p>Nilai Kontrak : Nilai Kontrak belum dibuat</p>
+                                            </td>
+                                            <td>PDAM Tirta Dharma Kota Makassar</td>
+                                            <td><a target="_blank" href="/eproc4/lelang/150743/jadwal">Tender Sudah
+                                                    Selesai</a></td>
+                                            <td>1,2 M</td>
+                                        </tr>
+                                        <tr role="row" class="even">
+                                            <td class="sorting_1">149743</td>
+                                            <td>
+                                                <p><a href="/eproc4/lelang/149743/pengumumanlelang"
+                                                        target="_blank">PENGADAAN DAN PEMASANGAN JARINGAN PIPA
+                                                        DISTRIBUSI Ø 160mm, 110mm, 90mm DAN 63mm HDPE KAMPUNG BARU -
+                                                        BUKIT BATU ANTANG, MAKASSAR</a> <span
+                                                        class="label label-danger">spse 4.3</span> </p>
+                                                <p>Pekerjaan Konstruksi - TA 2020 - Tender - Pascakualifikasi Satu File
+                                                    Harga Terendah Sistem Gugur</p>
+                                                <p>Nilai Kontrak : Nilai Kontrak belum dibuat</p>
+                                            </td>
+                                            <td>PDAM Tirta Dharma Kota Makassar</td>
+                                            <td><a target="_blank" href="/eproc4/lelang/149743/jadwal">Tender Sudah
+                                                    Selesai</a></td>
+                                            <td>1,1 M</td>
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1">147743</td>
+                                            <td>
+                                                <p><a href="/eproc4/lelang/147743/pengumumanlelang"
+                                                        target="_blank">PENGADAAN MATERIAL UNTUK PEMASANGAN BARU</a>
+                                                    <span class="label label-danger">spse 4.3</span> </p>
+                                                <p>Pengadaan Barang - TA 2020 - Tender - Pascakualifikasi Satu File
+                                                    Harga Terendah Sistem Gugur</p>
+                                                <p>Nilai Kontrak : Nilai Kontrak belum dibuat</p>
+                                            </td>
+                                            <td>PDAM Tirta Dharma Kota Makassar</td>
+                                            <td><a target="_blank" href="/eproc4/lelang/147743/jadwal">Tender Sudah
+                                                    Selesai</a></td>
+                                            <td>3,8 M</td>
+                                        </tr>
+                                        <tr role="row" class="even">
+                                            <td class="sorting_1">146743</td>
+                                            <td>
+                                                <p><a href="/eproc4/lelang/146743/pengumumanlelang"
+                                                        target="_blank">PENGADAAN METER 1/2 UNTUK PEMASANGAN BARU</a>
+                                                    <span class="label label-danger">spse 4.3</span> </p>
+                                                <p>Pengadaan Barang - TA 2020 - Tender - Pascakualifikasi Satu File
+                                                    Harga Terendah Sistem Gugur</p>
+                                                <p>Nilai Kontrak : Nilai Kontrak belum dibuat</p>
+                                            </td>
+                                            <td>PDAM Tirta Dharma Kota Makassar</td>
+                                            <td><a target="_blank" href="/eproc4/lelang/146743/jadwal">Tender Sudah
+                                                    Selesai</a></td>
+                                            <td>2,2 M</td>
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1">145743</td>
+                                            <td>
+                                                <p><a href="/eproc4/lelang/145743/pengumumanlelang"
+                                                        target="_blank">Pembangunan Gedung Serbaguna Perumda Air Minum
+                                                        Kota Makassar</a> <span class="label label-danger">spse
+                                                        4.3</span> </p>
+                                                <p>Pekerjaan Konstruksi - TA 2020 - Tender - Pascakualifikasi Satu File
+                                                    Harga Terendah Sistem Gugur</p>
+                                                <p>Nilai Kontrak : Nilai Kontrak belum dibuat</p>
+                                            </td>
+                                            <td>PDAM Tirta Dharma Kota Makassar</td>
+                                            <td><a target="_blank" href="/eproc4/lelang/145743/jadwal">Tender Sudah
+                                                    Selesai</a></td>
+                                            <td>3 M</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div id="tbllelang_processing" class="dataTables_processing panel panel-default"
+                                    style="display: none;">Sedang proses...</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <div class="dataTables_info" id="tbllelang_info" role="status" aria-live="polite">
+                                    Tampilan 1 sampai 25 dari 105 data</div>
+                            </div>
+                            <div class="col-sm-7">
+                                <div class="dataTables_paginate paging_full_numbers" id="tbllelang_paginate">
+                                    <ul class="pagination">
+                                        <li class="paginate_button first disabled" id="tbllelang_first"><a href="#"
+                                                aria-controls="tbllelang" aria-label="First" data-dt-idx="0"
+                                                tabindex="0">«</a></li>
+                                        <li class="paginate_button previous disabled" id="tbllelang_previous"><a
+                                                href="#" aria-controls="tbllelang" aria-label="Previous" data-dt-idx="1"
+                                                tabindex="0">‹</a></li>
+                                        <li class="paginate_button active"><a href="#" aria-controls="tbllelang"
+                                                data-dt-idx="2" tabindex="0">1</a></li>
+                                        <li class="paginate_button "><a href="#" aria-controls="tbllelang"
+                                                data-dt-idx="3" tabindex="0">2</a></li>
+                                        <li class="paginate_button "><a href="#" aria-controls="tbllelang"
+                                                data-dt-idx="4" tabindex="0">3</a></li>
+                                        <li class="paginate_button "><a href="#" aria-controls="tbllelang"
+                                                data-dt-idx="5" tabindex="0">4</a></li>
+                                        <li class="paginate_button "><a href="#" aria-controls="tbllelang"
+                                                data-dt-idx="6" tabindex="0">5</a></li>
+                                        <li class="paginate_button next" id="tbllelang_next"><a href="#"
+                                                aria-controls="tbllelang" aria-label="Next" data-dt-idx="7"
+                                                tabindex="0">›</a></li>
+                                        <li class="paginate_button last" id="tbllelang_last"><a href="#"
+                                                aria-controls="tbllelang" aria-label="Last" data-dt-idx="8"
+                                                tabindex="0">»</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bs-callout bs-callout-warning">
+                        *) Link <em>Harga Penawaran</em> hanya muncul jika tender tersebut menggunakan metode
+                        pascakualifikasi satu file
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+    <form id="formLogout" action="/eproc4/logout" method="post"></form>
+
+    <div id="footer">
+        <div class="container">
+            <ul class="list-inline">
+                <li><a href="/eproc4/publik/tentangkami">Tentang Kami</a></li>
+                <li><a href="http://inaproc.id/pakta-integritas" target="_blank">Pakta Integritas</a></li>
+                <li><a href="http://inaproc.id/syarat-ketentuan" target="_blank">Persyaratan dan Ketentuan</a></li>
+            </ul>
+            <div id="footerInfo">
+                <div id="infoLeft" class="pull-left">
+                    <p>Total Pengunjung: 250.591</p><span id="realtime">18 Februari 2021 01:57</span> <span>WITA</span>
+                </div>
+                <div id="infoRight">
+                    <p>© 2006-2021 Lembaga Kebijakan Pengadaan Barang/Jasa Pemerintah (<a href="http://www.lkpp.go.id"
+                            target="_blank">LKPP</a>)</p>
+                    <p>SPSE v4.3u20191009</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/eproc4/public/javascripts/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="/eproc4/public/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/eproc4/public/bootstrap/js/bootstrap-dialog.min.js"></script>
+    <script type="text/javascript" src="/eproc4/public/bootstrap-select/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="/eproc4/public/javascripts/jquery.jclock.min.js"></script>
+    <script type="text/javascript" src="/eproc4/public/javascripts/jquery.cookies.min.js"></script>
+    <script type="text/javascript" src="/eproc4/public/javascripts/common.js"></script>
+    <script type="text/javascript" src="/eproc4/public/javascripts/strength.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/eproc4/public/javascripts/tus/tus.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/eproc4/public/javascripts/resumeable-upload.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/eproc4/public/javascripts/jquery.maskedinput.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/eproc4/public/javascripts/jquery.webticker.min.js" charset="utf-8"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/eproc4/public/bootstrap/js/html5shiv.min.js"></script>
+    <script type="text/javascript" src="/eproc4/public/bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript" src="/eproc4/public/bootstrap/js/bootstrap-datatables.min.js"></script>
+    <script type="text/javascript">
+        var source = {
+            url: function (args) {
+                var pattern = '/eproc4/dt/lelang?rkn_nama=:rkn_nama&kategori=:id';
+                for (var key in args) {
+                    pattern = pattern.replace(':' + key, args[key] || '');
+                }
+                return pattern;
+            },
+            method: 'GET'
+        };
+        var pengumuman = {
+            url: function (args) {
+                var pattern = '/eproc4/lelang/:id/pengumumanlelang';
+                for (var key in args) {
+                    pattern = pattern.replace(':' + key, args[key] || '');
+                }
+                return pattern;
+            },
+            method: 'GET'
+        };
+        var viewTahap = {
+            url: function (args) {
+                var pattern = '/eproc4/lelang/:id/jadwal';
+                for (var key in args) {
+                    pattern = pattern.replace(':' + key, args[key] || '');
+                }
+                return pattern;
+            },
+            method: 'GET'
+        };
+        var oTable = $("#tbllelang").dataTable({
+            ajax: {
+                url: "/eproc4/dt/lelang",
+                data: function (d) {
+                    d.authenticityToken = 'c5a03b98ed637d7b81cb4f93b8546c098ba7c735';
+                }
+            },
+            columns: [{
+                render: function (data, type, row) {
+                    var id = row[0]
+                    var paket = row[1]
+                    var version = getLabelSpseVersion(row[9]);
+                    var flag = version.flag;
+                    var highlight = version.highlight;
+                    var evaluasiUlang = '';
+                    var penawaranUlang = '';
+                    if (Number(row[12]) == 1) {
+                        penawaranUlang =
+                            '<span class="label label-info">Pemasukan Penawaran Ulang</span>';
+                    }
+                    if (Number(row[11] == 1)) {
+                        evaluasiUlang = '<span class="label label-info">Evaluasi Ulang</span>';
+                    }
+                    row[1] = '<p><a href="' + pengumuman.url({
+                            id: id
+                        }) + '" target="_blank">' + paket +
+                        '</a> <span class="label ' + highlight + '">' + flag + '</span>' +
+                        ' ' + penawaranUlang + ' ' + evaluasiUlang;
+
+                    if (row[13] == '1') {
+                        var lblKonsolidasi = getKonsolidasiLabel()
+                        row[1] += '&nbsp;<span class="label ' + lblKonsolidasi.highlight + '">' +
+                            lblKonsolidasi.flag + '</span>';
+                    }
+
+                    row[1] += '</p><p>' + row[8] + ' - ' + row[6] + ' - ' + row[5] + ' ' + row[7] +
+                        '</p>' +
+                        '<p>Nilai Kontrak : ' + row[10] + '</p>';
+                    row[3] = '<a target="_blank" href="' + viewTahap.url({
+                        id: id
+                    }) + '" >' + row[3] + '</a>'
+
+                    return row[0];
+                }
+            }, null, null, {
+                orderable: false,
+                searchable: false
+            }, null]
+        }).fnFilterOnReturn();
+        var kgr_id;
+        $('.kategori').click(function () {
+            kgr_id = $(this).attr('value');
+            oTable.fnReloadAjax(source.url({
+                id: kgr_id,
+                rkn_nama: rkn_nama
+            }));
+        });
+        var rkn_nama;
+        $('#rkn_nama').keypress(function (e) {
+            if (e.which == 13) {
+                rkn_nama = $(this).val();
+                oTable.fnReloadAjax(source.url({
+                    id: kgr_id,
+                    rkn_nama: rkn_nama
+                }));
+            }
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.ajax({
+                url: "/eproc4/json/getservertime",
+                cache: false,
+                success: function (data) {
+                    $('#realtime').jclock({
+                        format: '%d %B %Y %H:%M',
+                        seedTime: parseInt(data),
+                        utc: true,
+                        utc_offset: 8
+                    });
+                }
+            });
+            $("#login").on("click", function () {
+                $("#loginForm").load("/eproc4/publik/formlogin");
+            });
+            $('#news-ticker').webTicker({
+                height: '15px'
+            });
+
+
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="../img/icon.png" rel="icon">
+    <title>Trainer | Dashboard Admin</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-text mx-3">Member Area</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Menu
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="profile.html">
+                    <i class="fas fa-fw fa-newspaper"></i>
+                    <span>PROFILE</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="member.html">
+                    <i class="fas fa-calendar-day"></i>
+                    <span>MEMBER</span>
+                </a>
+            </li>
+
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="asesor.html">
+                    <i class="fas fa-store fa-folder"></i>
+                    <span>ASESOR</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="fasilitator.html">
+                    <i class="fas fa-user-cog fa-chart-area"></i>
+                    <span>FACILITATOR</span></a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="trainer.html">
+                    <i class="fas fa-users "></i>
+                    <span>TRAINER</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+            <!-- Sidebar Message -->
+
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Search -->
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container">
+
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Add Trainer</h6>
+                        </div>
+                        <div class="card-body">
+                            <hr>
+                            <h4 class="text-primary text-uppercase">Personal Data</h4>
+                            <hr>
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <form action="">
+                                        <div class="form-group">
+                                            <div class="col-6">
+                                                <label for="family-name">Family Name</label>
+                                                <input type="text" class="form-control" id="family-name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-6">
+                                                <label for="nationality">Nationality</label>
+                                                <input type="text" class="form-control" name="nationality"
+                                                    id="nationality" placeholder="Indonesia">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-6">
+                                                <label for="email">Email</label>
+                                                <input type="text" class="form-control" name="email" id="email"
+                                                    placeholder="youremail@mail.com">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-6">
+                                                <label for="first-name">First Name</label>
+                                                <input type="text" class="form-control" name="first-name"
+                                                    id="first-name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-6">
+                                                <label for="phone">Phone Number</label>
+                                                <input type="text" class="form-control" name="phone" id="phone"
+                                                    placeholder="08774212">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-6">
+                                                <label for="date">Date of Birth</label>
+                                                <input type="date" class="form-control" name="date" id="date">
+                                            </div>
+                                        </div>
+                                    </form>
+                            </div>
+                            <hr>
+                            <h4 class="text-primary text-uppercase">Licence Detail</h4>
+                            <hr>
+                            <div class="employment">
+                                <form action="">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="licence">LICENCE</label>
+                                                <input type="text" class="form-control" name="licence" id="licence">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="number">Number</label>
+                                                <input type="text" class="form-control" name="number" id="number">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="date">Date of Issue</label>
+                                                <input type="text" class="form-control" name="date" id="date">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="auth">Issuing Authority</label>
+                                                <input type="text" class="form-control" name="auth" id="auth">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <hr>
+                            <h4 class="text-primary text-uppercase">Type Rating Instructor I</h4>
+                            <hr>
+                            <div class="education">
+                                <form action="">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="aircraft">Aircraft Type</label>
+                                                <input type="text" class="form-control" name="aircraft" id="aircraft">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="validity">Validity</label>
+                                                <input type="text" class="form-control" name="validity" id="validity">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="date">Date of Last Flight</label>
+                                                <input type="date" class="form-control" name="date" id="date">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="inst-rating">Type Rating Instructor(Validity)</label>
+                                                <input type="text" class="form-control" name="inst-rating"
+                                                    id="inst-rating">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <hr>
+                            <h4 class="text-primary text-uppercase">Type Rating Instructor II</h4>
+                            <hr>
+                            <div class="aviation-training">
+                                <form action="">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="other-aircraft">Other Large Aircraft</label>
+                                                <input type="text" class="form-control" name="other-aircraft"
+                                                    id="other-aircraft">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="other-validty">Validity</label>
+                                                <input type="text" class="form-control" name="other-validty"
+                                                    id="other-validty">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="other-date">Date of Last Flight</label>
+                                                <input type="date" class="form-control" name="other-date"
+                                                    id="other-date">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="otherinst-rating">Type Rating Instructor(Validity)</label>
+                                                <input type="text" class="form-control" name="otherinst-rating"
+                                                    id="otherinst-rating">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <hr>
+                            <h4 class="text-primary text-uppercase">Other Licences/Ratings/Certificates</h4>
+                            <hr>
+                            <div class="other-training">
+                                <form action="">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="other-certificates">License/Rating/Certificates</label>
+                                                <input type="text" class="form-control" name="other-certificates"
+                                                    id="other-certificates">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="certificates-validty">Validity</label>
+                                                <input type="text" class="form-control" name="certificates-validty"
+                                                    id="certificates-validty">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <hr>
+                            <h4 class="text-primary text-uppercase">English Level</h4>
+                            <hr>
+                            <div class="diploma">
+                                <form action="">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <label for="read">Read</label>
+                                            <select class="form-control" id="read" name="read">
+                                                <option value=" ">English Level</option>
+                                                <option value="fluent">Fluent</option>
+                                                <option value="good">Good</option>
+                                                <option value="basic">Basic</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-4">
+                                            <label for="write">Write</label>
+                                            <select class="form-control" id="write" name="write">
+                                                <option value=" ">English Level</option>
+                                                <option value="fluent">Fluent</option>
+                                                <option value="good">Good</option>
+                                                <option value="basic">Basic</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-4">
+                                            <label for="speak">Speak</label>
+                                            <select class="form-control" id="speak" name="speak">
+                                                <option value=" ">English Level</option>
+                                                <option value="fluent">Fluent</option>
+                                                <option value="good">Good</option>
+                                                <option value="basic">Basic</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <hr>
+                            <h4 class="text-primary">IN-FLIGHT AIRCRAFT OPERATIONAL EXPERIENCE<sup>1</sup></h4>
+                            <hr>
+                            <div class="operational">
+                                <form action="">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="aircraft-type">Type of Aircraft</label>
+                                                <input type="text" class="form-control" name="aircraft-type"
+                                                    id="aircraft-type">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="date-from">Date From</label>
+                                                <input type="date" class="form-control" name="date-from" id="date-from">
+                                                <label for="date-to">Date To</label>
+                                                <input type="date" class="form-control" name="date-to" id="date-to">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="pilot-command">Pilot-in-Command</label>
+                                                <input type="text" class="form-control" name="pilot-command"
+                                                    id="pilot-command">
+                                                <label for="first-officer">First Officer</label>
+                                                <input type="text" class="form-control" name="first-officer"
+                                                    id="first-officer">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="pilot-command">Experience as Captain Conducting LIFUS
+                                                    <sup>2</sup></label>
+                                                <input type="text" class="form-control" name="pilot-command"
+                                                    id="pilot-command">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <hr>
+                            <h4 class="text-primary text-uppercase"> flight training experience <sup>1</sup></h4>
+                            <hr>
+                            <div class="flight-exp">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label for="aircraft-type-exp">Type of Aircraft</label>
+                                            <input type="text" class="form-control" name="aircraft-type-exp"
+                                                id="aircraft-type-exp">
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <h6 class="text-center">FFS</h6>
+                                            <label for="exp-total">Total</label>
+                                            <input type="text" class="form-control" name="exp-total" id="exp-total">
+                                            <label for="exp-lastmonth">Last 12 Months </label>
+                                            <input type="text" class="form-control" name="exp-lastmonth"
+                                                id="exp-lastmonth">
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label for="exp-basetraining">Aircraft(Base Training)</label>
+                                            <input type="text" class="form-control" name="exp-basetraining"
+                                                id="exp-basetraining">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <h4 class="text-primary text-uppercase">Other operational details</h4>
+                            <hr>
+                            <div class="other-operational">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label for="aircraft-type-other">Type of Aircraft</label>
+                                            <input type="text" class="form-control" name="aircraft-type-other"
+                                                id="aircraft-type-other">
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label for="date-other">Since</label>
+                                            <input type="date" class="form-control" name="date-other" id="date-other">
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label for="last-flight-other">Last Flight</label>
+                                            <input type="text" class="form-control" name="last-flight-other"
+                                                id="last-flight-other">
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-group">
+                                            <label for="last-training-other">Last Training</label>
+                                            <input type="text" class="form-control" name="last-training-other"
+                                                id="last-training-other">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <h4 class="text-primary text-uppercase text-center">Declaration</h4>
+                            <hr>
+                            <div class="declaration">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p>I, the undersigned, declare on my word of honor that:</p>
+                                        <ul style="list-style-type: square;">
+                                            <li>the information provided in this application form is true and complete
+                                            </li>
+                                            <li>I have not been subject to any sanctions, including the suspension,
+                                                limitation or revocation of any of hloding or held licenses, ratings or
+                                                certificates during the last 3 years</li>
+                                            <li>I have not been responsible for any aeronautical incident or
+                                                aeronautical accident during the last 3 years</li>
+                                        </ul>
+                                        <p>Applicant Name and Signature:</p>
+                                        <div class="form-group">
+                                            <input type="file" class="form-control" name="signature" id="signature">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <div class="ml-auto p-2">
+                                    <button type="submit" class="btn btn-primary  mt-3">Submit</button>
+                                </div>
+                            </div>
+                            </form>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; Alvin Dimas 2021</span>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="../index.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+</body>
+
+</html>

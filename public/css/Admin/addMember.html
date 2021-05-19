@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="../img/icon.png" rel="icon">
+    <title>Member | Dashboard Admin</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-text mx-3">Member Area</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Menu
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="profile.html">
+                    <i class="fas fa-fw fa-newspaper"></i>
+                    <span>PROFILE</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="member.html">
+                    <i class="fas fa-calendar-day"></i>
+                    <span>MEMBER</span>
+                </a>
+            </li>
+
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="asesor.html">
+                    <i class="fas fa-store fa-folder"></i>
+                    <span>ASESOR</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="fasilitator.html">
+                    <i class="fas fa-user-cog fa-chart-area"></i>
+                    <span>FACILITATOR</span></a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="trainer.html">
+                    <i class="fas fa-users "></i>
+                    <span>TRAINER</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+            <!-- Sidebar Message -->
+
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Search -->
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container">
+
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Add Member</h6>
+                        </div>
+                        <div class="card-body">
+                            <hr>
+                            <h4 class="text-primary text-uppercase">Personal Data</h4>
+                            <hr>
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <form action="">
+                                        <div class="form-group">
+                                            <div class="col-6">
+                                                <label for="name">Name</label>
+                                                <input type="text" class="form-control" id="name"
+                                                    placeholder="Full Name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-6">
+                                                <label for="birth">Place and Date of Birth</label>
+                                                <input type="text" class="form-control" name="birth" id="birth"
+                                                    placeholder="Example: Malang">
+                                                <input type="date" class="form-control" name="birth" id="birth">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <label for="sex">Sex</label>
+                                                <select class="form-control" id="sex" name="sex">
+                                                    <option value="0">Choose your own gender</option>
+                                                    <option value="male">Male</option>
+                                                    <option value="female">Female</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-6">
+                                                <label for="marit">Marital Status</label>
+                                                <input type="text" class="form-control" name="marit" id="marit">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-6">
+                                                <label for="religion">Religion</label>
+                                                <select class="form-control" id="religion" name="religion">
+                                                    <option value="0">Choose your own religion</option>
+                                                    <option value="islam">Islam</option>
+                                                    <option value="protestan">Protestan</option>
+                                                    <option value="katolik">Katolik</option>
+                                                    <option value="hindu">Hindu</option>
+                                                    <option value="budha">Budha</option>
+                                                    <option value="Konghucu">Konghucu</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-6">
+                                                <label for="address">Home Address</label>
+                                                <textarea class="form-control" id="address" rows="3"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-6">
+                                                <label for="telephone">Telephone No.</label>
+                                                <input type="text" class="form-control" name="telephone" id="telephone">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-6">
+                                                <label for="office">Position/Office</label>
+                                                <input type="text" class="form-control" name="office" id="office">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-6">
+                                                <label for="training-lag">Training Language</label>
+                                                <input type="text" class="form-control" name="training-lag"
+                                                    id="training-lag">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-6">
+                                                <label for="education">Latest Education</label>
+                                                <input type="text" class="form-control" name="education" id="education">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-6">
+                                                <label for="practical">Practical Training</label>
+                                                <input type="text" class="form-control" name="practical" id="practical">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-6">
+                                                <label for="initial">Initial Skill Training</label>
+                                                <input type="text" class="form-control" name="initial" id="initial">
+                                            </div>
+                                        </div>
+                                    </form>
+                            </div>
+                            <hr>
+                            <h4 class="text-primary text-uppercase">Employment Data</h4>
+                            <hr>
+                            <div class="employment">
+                                <form action="">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="employer">Employer</label>
+                                                <input type="text" class="form-control" name="employer" id="employer">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="position">Position</label>
+                                                <input type="text" class="form-control" name="position" id="position">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="year">Year</label>
+                                                <input type="text" class="form-control" name="year" id="year">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="job">Job/Responsibilities</label>
+                                                <input type="text" class="form-control" name="job" id="job">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <hr>
+                            <h4 class="text-primary text-uppercase">Education</h4>
+                            <hr>
+                            <div class="education">
+                                <form action="">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="name">Name</label>
+                                                <input type="text" class="form-control" name="name" id="name">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="location">Location</label>
+                                                <input type="text" class="form-control" name="location" id="location">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="major">Major</label>
+                                                <input type="text" class="form-control" name="major" id="major">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="year">Years</label>
+                                                <input type="text" class="form-control" name="year" id="year">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="certificates">Certificates</label>
+                                                <input type="file" class="form-control" name="certificates"
+                                                    id="certificates">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <hr>
+                            <h4 class="text-primary text-uppercase">Aviation Training</h4>
+                            <hr>
+                            <div class="aviation-training">
+                                <form action="">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="name">Name</label>
+                                                <input type="text" class="form-control" name="name" id="name">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="location">Location</label>
+                                                <input type="text" class="form-control" name="location" id="location">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="major">Major</label>
+                                                <input type="text" class="form-control" name="major" id="major">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="year">Years</label>
+                                                <input type="text" class="form-control" name="year" id="year">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="certificates">Certificates</label>
+                                                <input type="file" class="form-control" name="certificates"
+                                                    id="certificates">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <hr>
+                            <h4 class="text-primary text-uppercase">Other Training</h4>
+                            <hr>
+                            <div class="other-training">
+                                <form action="">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="name">Name</label>
+                                                <input type="text" class="form-control" name="name" id="name">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="location">Location</label>
+                                                <input type="text" class="form-control" name="location" id="location">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="major">Major</label>
+                                                <input type="text" class="form-control" name="major" id="major">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="year">Years</label>
+                                                <input type="text" class="form-control" name="year" id="year">
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="certificates">Certificates</label>
+                                                <input type="file" class="form-control" name="certificates"
+                                                    id="certificates">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <hr>
+                            <h4 class="text-primary text-uppercase">Diploma/Licenses Held</h4>
+                            <hr>
+                            <div class="diploma">
+                                <form action="">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <label for="diploma">Diploma/License</label>
+                                            <input type="text" class="form-control" name="diploma" id="diploma">
+                                        </div>
+                                        <div class="col-4">
+                                            <label for="diploma-no">Diploma No.</label>
+                                            <input type="text" class="form-control" name="diploma-no" id="diploma-no">
+                                        </div>
+                                        <div class="col-4">
+                                            <label for="date">Date Of Issued</label>
+                                            <input type="date" class="form-control" name="date" id="date">
+                                        </div>
+                                        <div class="col-4">
+                                            <label for="validity">Validities</label>
+                                            <input type="file" class="form-control" name="validity" id="validity">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <div class="ml-auto p-2">
+                                    <button type="submit" class="btn btn-primary  mt-3">Submit</button>
+                                </div>
+                            </div>
+                            </form>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; Alvin Dimas 2021</span>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="../index.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+</body>
+
+</html>
