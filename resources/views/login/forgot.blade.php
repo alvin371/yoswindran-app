@@ -24,19 +24,20 @@
     <div class="container">
         <div class="card text-center my-5">
             <div class="card-header">
-                Verification Email Address
+               Reset Password
             </div>
             <div class="card-body">
-                <h5 class="card-title">Check Your Email!</h5>
-                <p class="card-text">Thank you for signing up in Pre in Post Aviation Services!</p>
-                <form action="{{url('/verificationcode')}}" method='post'>
+                <h5 class="card-title">Type Your Email Here!</h5>
+                <p class="card-text">If you forgot your password, type your email address here!</p>
+                <p class="card-text">We will send you code for confirmation</p>
+                <form action="{{url('/email-forgot')}}" method='post'>
                 @csrf
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Insert verification code</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" name="code" aria-describedby="emailHelp">
-                        <small id="emailHelp" class="form-text text-muted">Check your email to get code to verify your email address</small>
+                        <label for="exampleInputEmail1">Insert Email</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
+                        <small id="emailHelp" class="form-text text-muted">Check your email to get code!</small>
                     </div>
-                    <button type="submit">Verify</button>
+                    <button type="submit">Submit</button>
                 </form>
             </div>
             <div class="card-header">

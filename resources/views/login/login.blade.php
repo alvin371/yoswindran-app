@@ -84,7 +84,7 @@
                 <span>or use your account</span>
                 <input type="email" name="email"placeholder="Email">
                 <input type="password" name="password"placeholder="Password">
-                <a href="#">Forgot your password?</a>
+                <a href="{{url('/forgot-password')}}">Forgot your password?</a>
                 <button>Sign In</button>
             </form>
         </div>

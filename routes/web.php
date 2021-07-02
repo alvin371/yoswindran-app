@@ -54,6 +54,9 @@ Route::post('/postlogin', 'App\Http\Controllers\LoginController@postlogin')->nam
 Route::post('/signup', 'App\Http\Controllers\LoginController@signup')->name('signup');
 Route::get('/logout', 'App\Http\Controllers\LoginController@logout')->name('logout');
 Route::get('/testing','App\Http\Controllers\LoginController@sendEmail');
+// forgot Password
+Route::get('/forgot-password','App\Http\Controllers\LoginController@forgotPassword');
+Route::post('/email-forgot','App\Http\Controllers\LoginController@emailforgot');
 
 Route::get('/send-email', 'App\Http\Controllers\LoginController@sendEmail')->name('email');
 
