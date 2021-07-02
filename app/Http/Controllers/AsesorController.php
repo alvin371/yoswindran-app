@@ -33,10 +33,12 @@ class AsesorController extends Controller
     public function uploadFile($id)
     {
         //
-        $asesor = DB::table('asesor_files')->where('met', '=', $id)->get();
-        foreach($asesor as $a){
-        return view('asesor.filestore', compact('a'));
-        }
+        $asesor = Asesor::find($id);
+        return view('asesor.filestore', compact('asesor'));
+
+        // return view('asesor.filestore', [
+        //     'asesor' => AsesorFile::findOrFail($id)
+        // ]);
         // $member = DB::table('member_files')
         //         ->where('memberId', '=', $id)->get();
         // dd($member);
@@ -53,31 +55,6 @@ class AsesorController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
-            'name' => 'required',
-            'placebirth' => 'required',
-            'datebirth' => 'required',
-            'sex' => 'required',
-            'email' => 'required',
-            'maritalstatus' => 'required',
-            'religion' => 'required',
-            'address' => 'required',
-            'telephone' => 'required',
-            'office' => 'required',
-            'lspregistration' => 'required',
-            'education' => 'required',
-            'position' => 'required',
-            'initial' => 'required',
-            'eemployer' => 'required',
-            'educationdata' => 'required',
-            'avitraining' => 'required',
-            'othertraining' => 'required',
-            'licenseheld' => 'required',
-            'teachingaspeck' => 'required',
-            'conclusion' => 'required',
-            'recommendation' => 'required',
-            'masterasesor' => 'required',
-        ]);
         // Asesor::create([
         //     'name'=>$request->name,
         //     'placebirth'=>$request->placebirth,
@@ -135,10 +112,6 @@ class AsesorController extends Controller
         $asesor->recommendation = $request->recommendation;
         $asesor->masterasesor = $request->masterasesor;
         
-        $file = new AsesorFile;
-        $file->met = $request->met;
-
-        $file->save();
         $asesor->save();
         return redirect('/asesor')->with('success', 'Asesor Created Successfully!');
     }
@@ -152,16 +125,21 @@ class AsesorController extends Controller
     public function show($id)
     {
         //
-        // return view('/asesor/detail', [
+        // return view('asesor.detail', [
         //     'asesor' => Asesor::findOrFail($id)
         // ]);
+        
+        // $a = DB::table('asesors')->join('asesor_files','asesors.met','asesor_files.met')->where('asesors.met','=', $id)->get();
+        // foreach($a as $asesor){
+        //     return view('asesor.detail', [
+        //         'asesor' => $asesor
+        //     ]);
+        // }
+        $asesor = Asesor::with('AsesorFile')->find($id);
+        return view('asesor.detail', [
+            'asesor' => $asesor
+        ]);
 
-        $a = DB::table('asesors')->join('asesor_files','asesors.met','asesor_files.met')->get();
-        foreach($a as $asesor){
-            return view('asesor.detail', [
-                'asesor' => $asesor
-            ]);
-        }
     }
 
     /**
@@ -291,9 +269,8 @@ class AsesorController extends Controller
     {
         //
         // Asesor::destroy($id);
-
-        AsesorFile::where('met', $id)->delete();
-        Asesor::where('met',$id)->delete();
-        return redirect('/asesor')->with('success', 'Asesor Deleted Successfully!');
+        $asesor = Asesor::find($id);
+        $asesor->delete();
+        return redirect('/asesor')->with('success', 'asesor Deleted Successfully!');
     }
 }

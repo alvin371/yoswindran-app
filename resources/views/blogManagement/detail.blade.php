@@ -43,6 +43,12 @@
                                 <input type="text" class="form-control" value="{{$blogManagement->postby}}" name="postby" id="postby" readonly>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <div class="col-12">
+                                <label for="type">Shared Link</label>
+                                <textarea name="type" class="form-control" id="type" readonly>{{$blogManagement->type}}</textarea>
+                            </div>
+                        </div>
                         <hr>
                         <div class="form-group">
                             <div class="col-12">
@@ -153,6 +159,7 @@
     <script src="{{asset('/css/ckeditor/ckeditor.js')}}"></script>
     <script>
         CKEDITOR.replace('contenttext');
+        CKEDITOR.replace('type');
     </script>
 </body>
 

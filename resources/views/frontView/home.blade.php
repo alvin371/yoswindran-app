@@ -169,15 +169,21 @@
       <div class="row mx-auto">
         <!-- start item blog -->
         @foreach($blogManagement as $b)
-        <div class="col-sm-6 col-6">
+        <div class="card ml-5 mb-3" style="width: 18rem;">
+        @if(auth()->user())
           <a href="{{url('/detailBlog/'.$b->id)}}">
-            <img src="{{asset('storage/'.$b->photo)}}" style="width:500px; height:300px;" alt="">
+        @endif
+          <img src="{{asset('storage/'.$b->photo)}}" class="card-img-top" alt="...">
+          <div class="card-body">
             <h4>{{$b->title}}</h4>
-            <p>{{$b->desc}}</p>
-          </a>
+          </div>
+          <a href="{{url('/login')}}"><button class="btn btn-primary mb-5">Sign up to see detail</button></a>
         </div>
         @endforeach
         <!-- end looping -->
+      </div>
+      <div class="row flex mx-auto justify-content-center">-
+        {{ $blogManagement->links() }}
       </div>
     </div>
   </div> <!-- Start Footer -->

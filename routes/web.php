@@ -165,7 +165,7 @@ Route::get('/detailBlog/{blogManagement}','App\Http\Controllers\BlogManagementCo
 // Route::post('/blogManagement','App\Http\Controllers\BlogManagementController@store');
 //
 
-Route::get('/blogManagement/{blogManagement}', 'App\Http\Controllers\BlogManagementController@show');
+// Route::get('/blogManagement/{blogManagement}', 'App\Http\Controllers\BlogManagementController@show');
 // Route::delete('/blogManagement/{blogManagement}', 'App\Http\Controllers\BlogManagementController@destroy');
 // Route::get('/blogManagement/{blogManagement}/edit','App\Http\Controllers\BlogManagementController@edit');
 // Route::patch('/blogManagement/{blogManagement}','App\Http\Controllers\BlogManagementController@update');
@@ -176,70 +176,77 @@ Route::get('/blogManagement/{blogManagement}', 'App\Http\Controllers\BlogManagem
 Route::get('/companyProfile', 'App\Http\Controllers\CompanyProfileController@showCompanyProfile');
 Route::get('/', 'App\Http\Controllers\CompanyProfileController@showIndex');
 
+Route::post('dropfile/member','App\Http\Controllers\MemberController@dropfile');
 
 
 
+Route::group(['middleware'=>['auth','ceklevel:superadmin,member,admin1,admin2']],function(){
+    Route::resource('profile','App\Http\Controllers\ProfileController');
+    Route::resource('member','App\Http\Controllers\MemberController');
+    // Member file
+    Route::get('/member/file/{member}','App\Http\Controllers\MemberController@uploadFile');
+    Route::post('/file/{member}/uploadMember','App\Http\Controllers\DropzoneController@storeMember');
+});
 
-Route::group(['middleware'=>['auth','ceklevel:admin']], function(){
-    Route::get('/companyProfileManagement', 'App\Http\Controllers\CompanyProfileController@index');
-    Route::get('/companyProfileManagement/{companyProfileManagement}/edit','App\Http\Controllers\CompanyProfileController@edit');
+Route::group(['middleware'=>['auth', 'ceklevel:superadmin,admin1']], function(){
+    Route::resource('servicesManagement','App\Http\Controllers\ServicesManagementController');
+    Route::resource('account','App\Http\Controllers\AccountController');
+    Route::patch('/account/{account}', 'App\Http\Controllers\AccountController@update');
+});
+Route::group(['middleware'=>['auth','ceklevel:superadmin,admin2']], function(){
+    Route::resource('blogManagement','App\Http\Controllers\BlogManagementController');
+     // MemberArea PhotoGallery
+     Route::get('/photogallery', 'App\Http\Controllers\PhotoGallery@Index');
+     Route::get('/photogallery/createH', 'App\Http\Controllers\PhotoGallery@createHighlights');
+     Route::get('/photogallery/createP', 'App\Http\Controllers\PhotoGallery@createPhoto');
+     Route::post('/photogallery', 'App\Http\Controllers\PhotoGallery@storeHighlights');
+     Route::post('/photogallery/createP', 'App\Http\Controllers\PhotoGallery@storePhoto');
+     Route::get('/photogallery/{photogallery}/editHighlights', 'App\Http\Controllers\PhotoGallery@editHighlights');
+     Route::get('/photogallery/{photogallery}/edit', 'App\Http\Controllers\PhotoGallery@editPhoto');
+     Route::patch('/photogallery/highlights/{photogallery}','App\Http\Controllers\PhotoGallery@updateHighlights');
+     Route::patch('/photogallery/photo/{photogallery}','App\Http\Controllers\PhotoGallery@updatePhoto');
+     Route::delete('/photogallery/highlightsDelete/{photogallery}', 'App\Http\Controllers\PhotoGallery@destroyHighlights');
+     Route::delete('/photogallery/photoDelete/{photogallery}', 'App\Http\Controllers\PhotoGallery@destroyPhoto');
+     Route::delete('/photogallery/formus/{photogallery}', 'App\Http\Controllers\PhotoGallery@destroyFormus');
+ 
+     // edit for blog and services photo
+     Route::get('/photogallery/blogphoto','App\Http\Controllers\PhotoGallery@editBlogPhoto');
+     Route::get('/photogallery/servicephoto','App\Http\Controllers\PhotoGallery@editServicesPhoto');  
+     Route::patch('/photogallery/updateBlog','App\Http\Controllers\PhotoGallery@updateBlog');
+     Route::patch('/photogallery/updateServices','App\Http\Controllers\PhotoGallery@updateServices');
+ 
+     // edit for company profile
+     Route::get('/photogallery/companyphoto','App\Http\Controllers\PhotoGallery@editCompanyPhoto');
+     Route::patch('/photogallery/updateCompany','App\Http\Controllers\PhotoGallery@updateCompany');
+     Route::resource('companyProfileManagement','App\Http\Controllers\CompanyProfileController');    
+     Route::get('/companyProfileManagement', 'App\Http\Controllers\CompanyProfileController@index');
+     Route::get('/companyProfileManagement/{companyProfileManagement}/edit','App\Http\Controllers\CompanyProfileController@edit');
+});
+
+Route::group(['middleware'=>['auth','ceklevel:superadmin']], function(){
+    
     Route::patch('/companyProfileManagement/{companyProfileManagement}','App\Http\Controllers\CompanyProfileController@update');
     Route::get('/profile/{editData}/password','App\Http\Controllers\ProfileController@password');
     Route::patch('/profile/{editData}/updatepassword','App\Http\Controllers\ProfileController@updatepassword');
 
-
     // company Profile Contact US
     Route::post('/companyProfile','App\Http\Controllers\PhotoGallery@storeFormus');
-    
-    Route::resource('profile','App\Http\Controllers\ProfileController');
-    Route::resource('member','App\Http\Controllers\MemberController');
-    // Member file
-    Route::get('/member/file/{member}','App\Http\Controllers\MemberController@uploadFile');
-    Route::patch('/file/{member}/uploadMember','App\Http\Controllers\DropzoneController@storeMember');
+    // Route::resource('profile','App\Http\Controllers\ProfileController');
+    // Route::resource('member','App\Http\Controllers\MemberController');
+    // // Member file
+    // Route::get('/member/file/{member}','App\Http\Controllers\MemberController@uploadFile');
+    // Route::patch('/file/{member}/uploadMember','App\Http\Controllers\DropzoneController@storeMember');
     // Asesor File
     Route::get('/asesor/file/{asesor}','App\Http\Controllers\AsesorController@uploadFile');
-    Route::patch('/file/{asesor}/uploadAsesor','App\Http\Controllers\DropzoneController@storeAsesor');
+    Route::post('/file/{asesor}/uploadAsesor','App\Http\Controllers\DropzoneController@storeAsesor');
     // Facilitator File
     Route::get('/facilitator/file/{facilitator}','App\Http\Controllers\FacilitatorController@uploadFile');
-    Route::patch('/file/{facilitator}/uploadFacilitator','App\Http\Controllers\DropzoneController@storeFacilitator');
+    Route::post('/file/{facilitator}/uploadFacilitator','App\Http\Controllers\DropzoneController@storeFacilitator');
 
     Route::resource('asesor','App\Http\Controllers\AsesorController');
     Route::resource('facilitator','App\Http\Controllers\FacilitatorController');
     Route::resource('trainer','App\Http\Controllers\TrainerController');
-    Route::resource('servicesManagement','App\Http\Controllers\ServicesManagementController');
-    Route::resource('blogManagement','App\Http\Controllers\BlogManagementController');
-    Route::resource('companyProfileManagement','App\Http\Controllers\CompanyProfileController');
-    Route::resource('account','App\Http\Controllers\AccountController');
-    // MemberArea PhotoGallery
-    Route::get('/photogallery', 'App\Http\Controllers\PhotoGallery@Index');
-    Route::get('/photogallery/createH', 'App\Http\Controllers\PhotoGallery@createHighlights');
-    Route::get('/photogallery/createP', 'App\Http\Controllers\PhotoGallery@createPhoto');
-    Route::post('/photogallery', 'App\Http\Controllers\PhotoGallery@storeHighlights');
-    Route::post('/photogallery/createP', 'App\Http\Controllers\PhotoGallery@storePhoto');
-    Route::get('/photogallery/{photogallery}/editHighlights', 'App\Http\Controllers\PhotoGallery@editHighlights');
-    Route::get('/photogallery/{photogallery}/edit', 'App\Http\Controllers\PhotoGallery@editPhoto');
-    Route::patch('/photogallery/highlights/{photogallery}','App\Http\Controllers\PhotoGallery@updateHighlights');
-    Route::patch('/photogallery/photo/{photogallery}','App\Http\Controllers\PhotoGallery@updatePhoto');
-    Route::delete('/photogallery/highlightsDelete/{photogallery}', 'App\Http\Controllers\PhotoGallery@destroyHighlights');
-    Route::delete('/photogallery/photoDelete/{photogallery}', 'App\Http\Controllers\PhotoGallery@destroyPhoto');
-    Route::delete('/photogallery/formus/{photogallery}', 'App\Http\Controllers\PhotoGallery@destroyFormus');
-
-    // edit for blog and services photo
-    Route::get('/photogallery/blogphoto','App\Http\Controllers\PhotoGallery@editBlogPhoto');
-    Route::get('/photogallery/servicephoto','App\Http\Controllers\PhotoGallery@editServicesPhoto');  
-    Route::patch('/photogallery/updateBlog','App\Http\Controllers\PhotoGallery@updateBlog');
-    Route::patch('/photogallery/updateServices','App\Http\Controllers\PhotoGallery@updateServices');
-
-    // edit for company profile
-    Route::get('/photogallery/companyphoto','App\Http\Controllers\PhotoGallery@editCompanyPhoto');
-    Route::patch('/photogallery/updateCompany','App\Http\Controllers\PhotoGallery@updateCompany');
+   
     
 });
 
-Route::group(['middleware'=>['auth','ceklevel:admin,member']],function(){
-    Route::resource('profile','App\Http\Controllers\ProfileController');
-    Route::resource('member','App\Http\Controllers\MemberController');
-    // Member file
-    Route::get('/member/file/{member}','App\Http\Controllers\MemberController@uploadFile');
-    Route::patch('/file/{member}/uploadMember','App\Http\Controllers\DropzoneController@storeMember');
-});

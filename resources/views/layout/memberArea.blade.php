@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.8.1/dropzone.min.css" integrity="sha512-jU/7UFiaW5UBGODEopEqnbIAHOI8fO6T99m7Tsmqs2gkdujByJfkCbbfPSN4Wlqlb9TGnsuC0YgUgWkRBK7B9A==" crossorigin="anonymous" />
     <!-- Custom styles for this page -->
     <link href="{{asset('css/Admin/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
-
+    <link rel="stylesheet" href="{{asset('js/dropzone/dist/dropzone.css')}}">
 </head>
 
 <body id="page-top">
@@ -58,7 +58,7 @@
                     <span>PROFILE</span>
                 </a>
             </li>
-
+            @if((auth()->user()->level == "superadmin") || (auth()->user()->level == "member") || (auth()->user()->level == "admin1") || (auth()->user()->level == "admin2"))
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/member')}}">
@@ -66,30 +66,32 @@
                     <span>MEMBER</span>
                 </a>
             </li>
-
-
+            @endif
             <!-- Nav Item - Pages Collapse Menu -->
+            @if((auth()->user()->level == "superadmin") || (auth()->user()->level == "asesor") )
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/asesor')}}">
                     <i class="fas fa-store fa-folder"></i>
                     <span>ASESOR</span>
                 </a>
             </li>
-
+            @endif
             <!-- Nav Item - Charts -->
+            @if((auth()->user()->level == "superadmin") || (auth()->user()->level == "facilitator") )
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/facilitator')}}">
                     <i class="fas fa-user-cog fa-chart-area"></i>
                     <span>FACILITATOR</span></a>
             </li>
-
+            @endif
             <!-- Nav Item - Tables -->
             <li class="nav-item">
+            @if((auth()->user()->level == "superadmin") || (auth()->user()->level == "trainer") )
                 <a class="nav-link" href="{{url('/trainer')}}">
                     <i class="fas fa-users "></i>
                     <span>TRAINER</span></a>
             </li>
-
+            @endif
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -114,31 +116,42 @@
                     <span>COMPANY PROFILE</span></a>
             </li>
             <hr class="sidebar-divider d-none d-md-block">
+
+            @if((auth()->user()->level == "superadmin") || (auth()->user()->level == "admin1") )
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/servicesManagement')}}">
                     <i class="fas fa-tools"></i>
                     <span>SERVICES MANAGEMENT</span></a>
             </li>
+            @endif
+            @if((auth()->user()->level == "superadmin") || (auth()->user()->level == "admin2"))
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/blogManagement')}}">
                     <i class="fas fa-tools"></i>
                     <span>BLOG MANAGEMENT</span></a>
             </li>
+            @endif
+            @if((auth()->user()->level == "superadmin") || (auth()->user()->level == "admin2"))
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/companyProfileManagement')}}">
                     <i class="fas fa-tools"></i>
                     <span>COMPANY PROFILE MANAGEMENT</span></a>
             </li>
+            @endif
+            @if((auth()->user()->level == "superadmin")  || (auth()->user()->level == "admin1"))
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/account')}}">
                     <i class="fas fa-tools"></i>
                     <span>ACCOUNT MANAGEMENT</span></a>
             </li>
+            @endif
+            @if((auth()->user()->level == "superadmin") || (auth()->user()->level == "admin2"))
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/photogallery')}}">
                     <i class="fas fa-tools"></i>
                     <span>PHOTO GALLERY</span></a>
             </li>
+            @endif
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>

@@ -34,8 +34,8 @@ class CompanyProfileController extends Controller
     {
         $photo = PhotoModel::all();
         $companyProfileManagement = DB::table('companyprofiles')->find('1');
-        $blogManagement = DB::table('blogmanagement')->get();
-        $service = DB::table('servicemanagements')->get();
+        $blogManagement = DB::table('blogmanagement')->paginate(10);
+        $service = DB::table('servicemanagements')->paginate(10);
         $gallery = PhotoGalleryModel::all();
         return view('frontView.home', compact('companyProfileManagement','blogManagement','service','photo','gallery'));
     }

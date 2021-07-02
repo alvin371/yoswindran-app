@@ -57,6 +57,7 @@
                 </tfoot>
                 <tbody>
                 @foreach($member as $m)
+                @if(auth()->user()->level == "superadmin")
                     <tr>
                         <td>{{$loop->iteration}}</td>
                         <td>{{$m->name}}</td>
@@ -65,16 +66,16 @@
                         <td>{{$m->email}}</td>
                         <td>{{$m->created_at}}</td>
                         <td>
-                            <a href="{{url('/member/file/'.$m->member_id)}}" class="btn btn-warning btn-circle btn-sm">
+                            <a href="{{url('/member/file/'.$m->id)}}" class="btn btn-warning btn-circle btn-sm">
                                 <i class="far fa-file-archive 3x"></i>
                             </a>
                             <a href="{{url('/member/'.$m->id.'/edit')}}" class="btn btn-primary btn-circle btn-sm">
                                 <i class="fas fa-pen"></i>
                             </a>
-                            <a href="{{url('/member/'.$m->member_id)}}" class="btn btn-success">
+                            <a href="{{url('/member/'.$m->id)}}" class="btn btn-success">
                                 Data Lengkap
                             </a>
-                            <form action="{{url('/member/'.$m->member_id)}}" method="post">
+                            <form action="{{url('/member/'.$m->id)}}" method="post">
                             @method('delete')
                             @csrf
                                 <button type="submit" class="btn btn-danger btn-circle btn-sm d-block" onclick="return confirm('Are you sure?')">
@@ -83,6 +84,35 @@
                             </form>
                         </td>
                     </tr>
+                    @elseif(auth()->user()->name == $m->name)
+                    <tr>
+                        <td>{{$loop->iteration}}</td>
+                        <td>{{$m->name}}</td>
+                        <td>{{$m->office}}</td>
+                        <td>{{$m->telephone}}</td>
+                        <td>{{$m->email}}</td>
+                        <td>{{$m->created_at}}</td>
+                        <td>
+                            <a href="{{url('/member/file/'.$m->id)}}" class="btn btn-warning btn-circle btn-sm">
+                                <i class="far fa-file-archive 3x"></i>
+                            </a>
+                            <a href="{{url('/member/'.$m->id.'/edit')}}" class="btn btn-primary btn-circle btn-sm">
+                                <i class="fas fa-pen"></i>
+                            </a>
+                            <a href="{{url('/member/'.$m->id)}}" class="btn btn-success">
+                                Data Lengkap
+                            </a>
+                            <form action="{{url('/member/'.$m->id)}}" method="post">
+                            @method('delete')
+                            @csrf
+                                <button type="submit" class="btn btn-danger btn-circle btn-sm d-block" onclick="return confirm('Are you sure?')">
+                                        <i class="fa fa-trash"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    @endif
+
                     @endforeach
                 </tbody>
             </table>

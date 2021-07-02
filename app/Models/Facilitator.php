@@ -9,4 +9,9 @@ class Facilitator extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    protected $primaryKey = 'id';
+
+    public function facilitatorFile(){
+        return $this->hasMany("App\Models\FacilitatorFile","facilitatorID");
+    }
 }

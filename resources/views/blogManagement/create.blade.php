@@ -30,7 +30,7 @@
                         <div class="form-group">
                             <div class="col-6">
                                 <label for="shortdesc">Short Description</label>
-                                <textarea class="form-control @error('desc') is-invalid @enderror" name="desc" id="shortdesc" rows="3">{{old('desc')}}"</textarea>
+                                <textarea class="form-control @error('desc') is-invalid @enderror" name="desc" id="shortdesc" rows="3">{{old('desc')}}</textarea>
                                 @error('desc')
                                     <div id="shortdesc" class="invalid-feedback">
                                     </div>
@@ -53,6 +53,17 @@
                                 <input type="text" class="form-control @error('postby') is-invalid @enderror" value="{{old('postby')}}" name="postby" id="postby">
                                 @error('postby')
                                     <div id="postby" class="invalid-feedback">
+                                    </div>
+                                @enderror
+                                
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-6">
+                                <label for="type">If You Have Any Link To Share</label>
+                                <textarea name="type" class="form-control @error('type') is-invalid @enderror" id="content">{{old('type')}}</textarea>
+                                @error('type')
+                                    <div id="content" class="invalid-feedback">
                                     </div>
                                 @enderror
                                 
@@ -177,6 +188,7 @@
     <script src="{{asset('/css/ckeditor/ckeditor.js')}}"></script>
     <script>
         CKEDITOR.replace('contenttext');
+        CKEDITOR.replace('type');
     </script>
 </body>
 

@@ -80,15 +80,9 @@
             <hr>
             <tr>
                 <td>Employer </td>
-                <td colspan="2"><?php echo $facilitator->eemployer; ?>
             </tr>
             <tr>
-                <td>Job/Responsibilities Uploaded File</td>
-                <td rowspan="10">
-                    <iframe src="{{asset('storage/'.$facilitator->employercertificates)}}" frameborder="10">
-                    <a href="{{asset('storage/'.$facilitator->employercertificates)}}">{{asset('storage/'.$facilitator->employercertificates)}}</a></iframe>
-                </td>
-                <td><a href="{{asset('storage/'.$facilitator->employercertificates)}}">File</a></td>
+                <td colspan="2"><?php echo $facilitator->eemployer; ?>
             </tr>
         </table>
         <table class="table table-bordered">
@@ -97,15 +91,9 @@
             <hr>
             <tr>
                 <td>Education Data </td>
-                <td colspan="2"><?php echo $facilitator->educationdata; ?>
             </tr>
             <tr>
-                <td>Education Certificates</td>
-                <td rowspan="10">
-                    <iframe src="{{asset('storage/'.$facilitator->educationcertificates)}}" frameborder="10">
-                    <a href="{{asset('storage/'.$facilitator->educationcertificates)}}">{{asset('storage/'.$facilitator->educationcertificates)}}</a></iframe>
-                </td>
-                <td><a href="{{asset('storage/'.$facilitator->educationcertificates)}}">File</a></td>
+                <td colspan="2"><?php echo $facilitator->educationdata; ?>
             </tr>
         </table>
         <table class="table table-bordered">
@@ -114,15 +102,9 @@
             <hr>
             <tr>
                 <td>Aviation Training Data </td>
-                <td colspan="2"><?php echo $facilitator->avitraining; ?>
             </tr>
             <tr>
-                <td>Aviation Certificates</td>
-                <td rowspan="10">
-                    <iframe src="{{asset('storage/'.$facilitator->avicertificates)}}" frameborder="10">
-                    <a href="{{asset('storage/'.$facilitator->avicertificates)}}">{{asset('storage/'.$facilitator->avicertificates)}}</a></iframe>
-                </td>
-                <td><a href="{{asset('storage/'.$facilitator->avicertificates)}}">File</a></td>
+                <td colspan="2"><?php echo $facilitator->avitraining; ?>
             </tr>
         </table>
         <table class="table table-bordered">
@@ -131,15 +113,9 @@
             <hr>
             <tr>
                 <td>Other Training Data </td>
-                <td colspan="2"><?php echo $facilitator->othertraining; ?>
             </tr>
             <tr>
-                <td>Education Certificates</td>
-                <td rowspan="10">
-                    <iframe src="{{asset('storage/'.$facilitator->othercertificates)}}" frameborder="10">
-                    <a href="{{asset('storage/'.$facilitator->othercertificates)}}">{{asset('storage/'.$facilitator->othercertificates)}}</a></iframe>
-                </td>
-                <td><a href="{{asset('storage/'.$facilitator->othercertificates)}}">File</a></td>
+                <td colspan="2"><?php echo $facilitator->othertraining; ?>
             </tr>
         </table>
         <table class="table table-bordered">
@@ -148,17 +124,18 @@
             <hr>
             <tr>
                 <td>License Data </td>
-                <td colspan="2"><?php echo $facilitator->diploma; ?>
             </tr>
             <tr>
-                <td>Education Certificates</td>
-                <td rowspan="10">
-                    <iframe src="{{asset('storage/'.$facilitator->diplomavalidity)}}" frameborder="10">
-                    <a href="{{asset('storage/'.$facilitator->diplomavalidity)}}">{{asset('storage/'.$facilitator->diplomavalidity)}}</a></iframe>
-                </td>
-                <td><a href="{{asset('storage/'.$facilitator->diplomavalidity)}}">File</a></td>
+                <td colspan="2"><?php echo $facilitator->diploma; ?>
             </tr>
         </table>
+        <table class="table table-bordered">
+            <hr>
+            <h4 class="text-primary text-uppercase">File</h4>
+            <hr>
+            <tr>
+                <td>File Here</td>
+            </tr>
         </table>
     </div>
 </div>

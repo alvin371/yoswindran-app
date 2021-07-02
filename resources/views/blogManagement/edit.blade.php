@@ -58,6 +58,16 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="form-group">
+                            <div class="col-12">
+                                <label for="type">If You have any Link to share</label>
+                                <textarea name="typetext" class="form-control @error('typetext') is-invalid @enderror" id="type">{{$blogManagement->typetext}}</textarea>
+                                @error('typetext')
+                                    <div id="type" class="invalid-feedback">
+                                    </div>
+                                @enderror
+                            </div>
+                        </div>
                         <hr>
                         <div class="form-group">
                             <div class="col-12">

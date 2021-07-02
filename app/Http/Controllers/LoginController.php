@@ -178,6 +178,7 @@ class LoginController extends Controller
 
     public function getVerificationCode(Request $request){
         $token =  $request->code;
+        
         // ambil token
         // ambil user token
         $user  = DB::table('users')->where('token', '=', $token)->get();

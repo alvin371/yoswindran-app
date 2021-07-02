@@ -9,4 +9,9 @@ class Asesor extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    protected $primaryKey = 'id';
+
+    public function asesorFile(){
+        return $this->hasMany("App\Models\AsesorFile","asesorID");
+    }
 }

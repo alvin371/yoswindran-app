@@ -15,12 +15,14 @@ class CreateAsesorFilesTable extends Migration
     {
         Schema::create('asesor_files', function (Blueprint $table) {
             $table->id();
-            $table->string('met');
-            $table->string('employercertificates')->nullable();
-            $table->string('educationcertificates')->nullable();
-            $table->string('avicertificates')->nullable();
-            $table->string('othercertificates')->nullable();
-            $table->string('licensevalidity')->nullable();
+            $table->string('filename');
+            $table->unsignedBigInteger('asesorID');
+
+            $table->foreign('asesorID')->references('id')
+            ->on('asesors')
+            ->onDelete('cascade')->onUpdate('cascade');
+
+
             $table->timestamps();
         });
     }

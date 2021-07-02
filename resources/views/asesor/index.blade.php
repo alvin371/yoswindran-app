@@ -62,16 +62,16 @@
                         <td>{{$a->email}}</td>
                         <td>{{$a->telephone}}</td>
                         <td>
-                            <a href="{{url('/asesor/file/'.$a->met)}}" class="btn btn-warning btn-circle btn-sm">
+                            <a href="{{url('/asesor/file/'.$a->id)}}" class="btn btn-warning btn-circle btn-sm">
                                 <i class="far fa-file-archive 3x"></i>
                             </a>
                             <a href="{{url('/asesor/'.$a->id.'/edit')}}" class="btn btn-primary btn-circle btn-sm">
                                 <i class="fas fa-pen"></i>
                             </a>
-                            <a href="{{url('/asesor/'.$a->met)}}" class="btn btn-success">
+                            <a href="{{url('/asesor/'.$a->id)}}" class="btn btn-success">
                                 Data Lengkap
                             </a>
-                            <form action="{{url('asesor/'.$a->met)}}" method="post">
+                            <form action="{{url('asesor/'.$a->id)}}" method="post">
                             @method('delete')
                             @csrf
                                 <button type="submit" class="btn btn-danger btn-circle btn-sm d-block" onclick="return confirm('Are you sure?')">

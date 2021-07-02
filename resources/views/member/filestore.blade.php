@@ -12,122 +12,28 @@
             <h4 class="text-primary text-uppercase">Certificates Form Upload</h4>
             <hr>
             <div class="table-responsive">
-            <form method="post" enctype="multipart/form-data" action="/file/{{$m->member_id}}/uploadMember">
-            @method('patch')
-            @csrf
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <div class="upload-body">
-                    <input type="hidden" value="{{$m->member_id}}" name="member_id">
-                        <div class="form-group">
-                            <h6 class="d-block ml-3">Upload Your CV Here!</h6>
-                            <div class="col-12">
-                                <div class="input-group mb-3">
-                                    <div class="custom-file">
-                                        <input type="file"
-                                            class="custom-file-input  @error('employment') is-invalid @enderror"
-                                            id="employment" aria-labelledby  name="employment"
-                                            aria-describedby="employment" aria-label>
-                                        <label class="custom-file-label visually-hidden" for="employment"
-                                           >Choose File</label>
-                                        @error('employment')
-                                        <div id="employment" class="invalid-feedback">{{$message}}
-                                        </div>
-                                        @enderror
-                                    </div>
-                                </div>
+                <div class="d-flex flex justify-content-start my-5">
+                    <button class="btn btn-primary" id="add_btn"><i class="fas fa-plus-square"></i> Add Input Form</button>
+                </div>
+                <form action="/file/{{$member->id}}/uploadMember" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" value="{{$member->id}}" name="memberID">
+                    <div class="form-file">
+                        <div class="d-flex flex-wrap">
+                            <div class="custom-file col-10">
+                                <input type="file" class="custom-file-input" multiple name="file[]">
+                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                             </div>
                         </div>
-                        <hr>
-                        <div class="form-group">
-                            <h6 class="d-block ml-3">Upload Your Education Certificates Here!</h6>
-                            <div class="col-12">
-                                <div class="input-group mb-3">
-                                    <div class="custom-file">
-                                        <input type="file"
-                                            class="custom-file-input  @error('educationcertificates') is-invalid @enderror"
-                                            value="{{old('educationcertificates')}}" name="educationcertificates"
-                                            id="educationcertificates" aria-describedby="inputGroupFileAddon01"
-                                            >
-                                        @error('educationcertificates')
-                                        <div id="educationcertificates" class="invalid-feedback">{{$message}}
-                                        </div>
-                                        @enderror
-                                        <label class="custom-file-label" for="inputGroupFile01">Choose
-                                            file</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="form-group">
-                            <h6 class="d-block ml-3">Upload Your Aviation Certificates Here!</h6>
-                            <div class="col-12">
-                                <div class="input-group mb-3">
-                                    <div class="custom-file">
-                                        <input type="file"
-                                            class="custom-file-input  @error('aviationtraining') is-invalid @enderror"
-                                            value="{{old('aviationtraining')}}" name="aviationtraining"
-                                            id="aviationtraining" aria-describedby="inputGroupFileAddon01" >
-                                        @error('aviationtraining')
-                                        <div id="aviationtraining" class="invalid-feedback">{{$message}}
-                                        </div>
-                                        @enderror
-                                        <label class="custom-file-label" for="inputGroupFile01">Choose
-                                            file</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <h6 class="d-block ml-3">Upload Your Other Training Certificates Here!</h6>
-                            <div class="col-12">
-                                <div class="input-group mb-3">
-                                    <div class="custom-file">
-                                        <input type="file"
-                                            class="custom-file-input  @error('othertraining') is-invalid @enderror"
-                                            value="{{old('othertraining')}}" name="othertraining"
-                                            id="othertraining" aria-describedby="inputGroupFileAddon01" >
-                                        @error('othertraining')
-                                        <div id="othertraining" class="invalid-feedback">{{$message}}
-                                        </div>
-                                        @enderror
-                                        <label class="custom-file-label" for="inputGroupFile01">Choose
-                                            file</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="form-group">
-                            <h6 class="d-block ml-3">Upload Your Diploma Certificates Here!</h6>
-                            <div class="col-12">
-                                <div class="input-group mb-3">
-                                    <div class="custom-file">
-                                        <input type="file"
-                                            class="custom-file-input  @error('diplomafile') is-invalid @enderror"
-                                            value="{{old('diplomafile')}}" name="diplomafile"
-                                            id="diplomafile" aria-describedby="inputGroupFileAddon01" >
-                                        @error('diplomafile')
-                                        <div id="diplomafile" class="invalid-feedback">{{$message}}
-                                        </div>
-                                        @enderror
-                                        <label class="custom-file-label" for="inputGroupFile01">Choose
-                                            file</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
-                </table>
+                    <button type="submit" class="btn btn-outline-danger my-5"><i class="fas fa-upload"></i>   Submit</button>
                 </form>
             </div>
         </div>
-            </div>
-            <hr>
-        </div>
     </div>
+    <hr>
+</div>
+</div>
 </div>
 
 </div>
@@ -190,20 +96,27 @@
 <!-- Page level custom scripts -->
 <script src="{{asset('css/Admin/js/demo/datatables-demo.js')}}"></script>
 <script>
-    $(".reveal").on('click', function () {
-        var $pwd = $(".pwd");
-        if ($pwd.attr('type') === 'password') {
-            $pwd.attr('type', 'text');
-        } else {
-            $pwd.attr('type', 'password');
-        }
-    });
-
+    $(document).ready(function(){
+        $('#add_btn').on('click', function(){
+            var html = `<div class="d-flex flex-wrap">
+                        <div class="custom-file col-10">
+                            <input type="file" class="custom-file-input" multiple name="file[]">
+                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                        </div>
+                            <i class="far fa-times-circle btn-outline-danger" id="remove" style="font-size:40px;cursor:pointer;margin-left:10px;"></i>
+                        
+                    </div>`
+            $('.form-file').append(html);
+        })
+    })
+    $(document).on("click",'#remove',function(){
+        $(this).parent().remove()
+    })
 </script>
-<script>    
+<script>
     $('.custom-file-input').on('change', function () {
-            let fileName = $(this).val().split('\\').pop();
-            $(this).next('.custom-file-label').addClass("selected").html(fileName);
+        let fileName = $(this).val().split('\\').pop();
+        $(this).next('.custom-file-label').addClass("selected").html(fileName);
     });
 </script>
 

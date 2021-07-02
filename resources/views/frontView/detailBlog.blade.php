@@ -47,29 +47,34 @@
         </div>
     </nav>
     <!-- End Navigation -->
-    <!-- Jumbotron -->
-    <div class="container">
-            
-            <div class="row align-self-center mt-5">
-                <div class="col-12" style="background-color:white;">
-                    <div class="col-8">
-                        <h1>{{$blogManagement->title}}</h1>
-                        <p>{{$blogManagement->created_at}} | {{$blogManagement->postby}} </p>
-                    </div>
+<!-- Jumbotron -->
+<div class="container">
+        <div class="row">
+            <div class="col-12" style="background-color:white;">
+                <div class="col-8">
+                    <h1>{{$blogManagement->title}}</h1>
+                    <p>{{$blogManagement->created_at}} | {{$blogManagement->postby}} </p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-8" style="background-color:white;">
-                    <img src="{{asset('storage/'.$blogManagement->photo)}}" alt="{{$blogManagement->title}}" style="width:700px;">
-                </div>
+        </div>
+        <div class="row">
+            <div class="col-8" style="background-color:white;">
+                <img src="{{asset('storage/'.$blogManagement->photo)}}" alt="{{$blogManagement->title}}" style="width:700px;">
             </div>
-            <div class="row">
-                <div class="col-8" style="background-color: white;">
-                    <p class="text-left mt-5">
-                        <?php echo $blogManagement->content; ?>
-                    </p>
-                </div>
+        </div>
+        <div class="row">
+            <div class="col-8" style="background-color: white;">
+                <p class="text-left mt-5">
+                    <?php echo $blogManagement->content; ?>
+                </p>
             </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Some Additional links</h5>
+                <p class="card-text"><?php echo $blogManagement->type; ?></p>
+            </div>
+        </div>
     </div>
     <!-- End Jumbotron -->
  <!-- Start Footer -->

@@ -56,7 +56,7 @@
                         <td>{{$a->level}}</td>
                         <td>{{$a->verified_status}}</td>
                         <td>
-                        @if(($a->level) == 'admin')
+                        @if((auth()->user()->level) == 'superadmin')
                             <form action="{{url('/account/'.$a->id)}}" method="post">
                             @method('delete')
                             @csrf

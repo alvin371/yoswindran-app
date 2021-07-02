@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\BlogManagement;
 use App\Models\CompanyProfile;
 use App\Models\BlogPhoto;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class BlogManagementController extends Controller
@@ -58,6 +59,7 @@ class BlogManagementController extends Controller
             'photo'=>$request->file('photo')->store('blog','public'),
             'postby'=>$request->postby,
             'desc'=>$request->desc,
+            'type'=>$request->type,
             'content'=>$request->contenttext,
         ]);
         return redirect('/blogManagement')->with('success', 'Blog Added Successfully!');
@@ -101,21 +103,32 @@ class BlogManagementController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $request->validate([
-            'title' => 'required',
-            'photo' => 'required',
-            'postby' => 'required',
-            'desc' => 'required',
-            'contenttext' => 'required',
-        ]);
-        BlogManagement::where('id', $id)
-        ->update([
-            'title'=>$request->title,
-            'photo'=>$request->file('photo')->store('blog','public'),
-            'postby'=>$request->postby,
-            'desc'=>$request->desc,
-            'content'=>$request->contenttext,
-        ]);
+        // $request->validate([
+        //     'title' => 'required',
+        //     'photo' => 'required',
+        //     'postby' => 'required',
+        //     'desc' => 'required',
+        //     'contenttext' => 'required',
+        // ]);
+        // BlogManagement::where('id', $id)
+        // ->update([
+        //     'title'=>$request->title,
+        //     'photo'=>$request->file('photo')->store('blog','public'),
+        //     'postby'=>$request->postby,
+        //     'desc'=>$request->desc,
+        //     'content'=>$request->contenttext,
+        // ]);
+
+        $blog = BlogManagement::find($id);
+
+        $blog->title = $request->title ? $request->title : $blog->title;
+        $blog->postby = $request->postby ? $request->postby : $blog->postby;
+        $blog->desc = $request->desc ? $request->desc : $blog->desc;
+        $blog->content = $request->contenttext ? $request->contenttext : $blog->desc;
+        $blog->type = $request->type ? $request->type : $blog->type;
+        $blog->photo = $request->photo ? $request->file('photo')->store('blog','public') : $blog->photo;
+        $blog->save();
+
         return redirect('/blogManagement')->with('success', 'Blog Updated Successfully!');
     }
 

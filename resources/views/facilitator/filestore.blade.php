@@ -12,125 +12,29 @@
             <h4 class="text-primary text-uppercase">Certificates Form Upload</h4>
             <hr>
             <div class="table-responsive">
-            <form method="post" enctype="multipart/form-data" action="/file/{{$f->loa}}/uploadFacilitator">
-            @method('patch')
-            @csrf
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <div class="upload-body">
-                    <input type="hidden" value="{{$f->loa}}" name="loa">
-                        <div class="form-group">
-                            <h6 class="d-block ml-3">Upload Your CV Here!</h6>
-                            <div class="col-12">
-                                <div class="input-group mb-3">
-                                    <div class="custom-file">
-                                        <input type="file"
-                                            class="custom-file-input  @error('employercertificates') is-invalid @enderror"
-                                            id="employercertificates" aria-labelledby  name="employercertificates"
-                                            aria-describedby="employercertificates" aria-label>
-                                        <label class="custom-file-label visually-hidden" for="employercertificates"
-                                           >Choose File</label>
-                                        @error('employercertificates')
-                                        <div id="employercertificates" class="invalid-feedback">{{$message}}
-                                        </div>
-                                        @enderror
-                                    </div>
-                                </div>
+                <div class="d-flex flex justify-content-start my-5">
+                    <button class="btn btn-primary" id="add_btn"><i class="fas fa-plus-square"></i> Add Input Form</button>
+                </div>
+                <form action="/file/{{$facilitator->id}}/uploadFacilitator" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" value="{{$facilitator->id}}" name="facilitatorID">
+                    <div class="form-file">
+                        <div class="d-flex flex-wrap">
+                            <div class="custom-file col-10">
+                                <input type="file" class="custom-file-input" multiple name="file[]">
+                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                             </div>
                         </div>
-                        <hr>
-                        <div class="form-group">
-                            <h6 class="d-block ml-3">Upload Your Education Certificates Here!</h6>
-                            <div class="col-12">
-                                <div class="input-group mb-3">
-                                    <div class="custom-file">
-                                        <input type="file"
-                                            class="custom-file-input  @error('educationcertificates') is-invalid @enderror"
-                                            value="{{old('educationcertificates')}}" name="educationcertificates"
-                                            id="educationcertificates" aria-describedby="inputGroupFileAddon01"
-                                            >
-                                        @error('educationcertificates')
-                                        <div id="educationcertificates" class="invalid-feedback">{{$message}}
-                                        </div>
-                                        @enderror
-                                        <label class="custom-file-label" for="inputGroupFile01">Choose
-                                            file</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="form-group">
-                            <h6 class="d-block ml-3">Upload Your Aviation Certificates Here!</h6>
-                            <div class="col-12">
-                                <div class="input-group mb-3">
-                                    <div class="custom-file">
-                                        <input type="file"
-                                            class="custom-file-input  @error('avicertificates') is-invalid @enderror"
-                                            value="{{old('avicertificates')}}" name="avicertificates"
-                                            id="avicertificates" aria-describedby="inputGroupFileAddon01" >
-                                        @error('avicertificates')
-                                        <div id="avicertificates" class="invalid-feedback">{{$message}}
-                                        </div>
-                                        @enderror
-                                        <label class="custom-file-label" for="inputGroupFile01">Choose
-                                            file</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <h6 class="d-block ml-3">Upload Your Other Training Certificates Here!</h6>
-                            <div class="col-12">
-                                <div class="input-group mb-3">
-                                    <div class="custom-file">
-                                        <input type="file"
-                                            class="custom-file-input  @error('othercertificates') is-invalid @enderror"
-                                            value="{{old('othercertificates')}}" name="othercertificates"
-                                            id="othercertificates" aria-describedby="inputGroupFileAddon01" >
-                                        @error('othercertificates')
-                                        <div id="othercertificates" class="invalid-feedback">{{$message}}
-                                        </div>
-                                        @enderror
-                                        <label class="custom-file-label" for="inputGroupFile01">Choose
-                                            file</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="form-group">
-                            <h6 class="d-block ml-3">Upload Your Diploma Validity Here!</h6>
-                            <div class="col-12">
-                                <div class="input-group mb-3">
-                                    <div class="custom-file">
-                                        <input type="file"
-                                            class="custom-file-input  @error('diplomavalidity') is-invalid @enderror"
-                                            value="{{old('diplomavalidity')}}" name="diplomavalidity"
-                                            id="diplomavalidity" aria-describedby="inputGroupFileAddon01" >
-                                        @error('diplomavalidity')
-                                        <div id="diplomavalidity" class="invalid-feedback">{{$message}}
-                                        </div>
-                                        @enderror
-                                        <label class="custom-file-label" for="inputGroupFile01">Choose
-                                            file</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
-                </table>
+                    <button type="submit" class="btn btn-outline-danger my-5"><i class="fas fa-upload"></i>   Submit</button>
                 </form>
             </div>
         </div>
-            </div>
             <hr>
         </div>
     </div>
 </div>
 
-</div>
 <!-- End of Main Content -->
 <!-- Footer -->
 <footer class="sticky-footer bg-white">

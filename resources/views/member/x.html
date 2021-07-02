@@ -9,42 +9,25 @@
         </div>
 
         <div class="card-body">
-            <hr>
             <h4 class="text-primary text-uppercase">Certificates Form Upload</h4>
             <hr>
             <div class="table-responsive">
-                <div class="container lst">
-                    <h3 class="well">Laravel 7 Multiple File Upload</h3>
-                    <form method="post" action="{{url('file')}}" enctype="multipart/form-data">
-                        {{csrf_field()}}
-
-
-                        <div class="input-group hdtuto control-group lst increment">
-                            <input type="file" name="filenames[]" class="myfrm form-control">
-                            <div class="input-group-btn">
-                                <button class="btn btn-success" type="button"><i
-                                        class="fldemo glyphicon glyphicon-plus"></i>Add</button>
-                            </div>
-                        </div>
-                        <div class="clone hide">
-                            <div class="hdtuto control-group lst input-group" style="margin-top:10px">
-                                <input type="file" name="filenames[]" class="myfrm form-control">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-danger" type="button"><i
-                                            class="fldemo glyphicon glyphicon-remove"></i> Remove</button>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <button type="submit" class="btn btn-success" style="margin-top:10px">Submit</button>
-
-
-                    </form>
-                </div>
+                <form action="/file/{{$m->member_id}}/uploadMember" method="post" enctype="multipart/form-data">
+                    @method('patch')
+                    @csrf
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="inputGroupFile01"
+                            aria-describedby="inputGroupFileAddon01">
+                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                    </div>
+                    <button type="submit" class="btn btn-danger">Submit</button>
+                </form>
             </div>
         </div>
     </div>
+    <hr>
+</div>
+</div>
 </div>
 
 </div>
@@ -117,27 +100,14 @@
     });
 
 </script>
-<script src="{{asset('/css/ckeditor/ckeditor.js')}}"></script>
 <script>
-    CKEDITOR.replace('eemployer');
-    CKEDITOR.replace('educationdata');
-    CKEDITOR.replace('avitraining');
-    CKEDITOR.replace('othertraining');
-    CKEDITOR.replace('diploma');
-
-</script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $(".btn-success").click(function () {
-            var lsthmtl = $(".clone").html();
-            $(".increment").after(lsthmtl);
-        });
-        $("body").on("click", ".btn-danger", function () {
-            $(this).parents(".hdtuto control-group lst").remove();
-        });
+    $('.custom-file-input').on('change', function () {
+        let fileName = $(this).val().split('\\').pop();
+        $(this).next('.custom-file-label').addClass("selected").html(fileName);
     });
 
 </script>
+
 @include('sweetalert::alert')
 </body>
 

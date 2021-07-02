@@ -15,12 +15,12 @@ class CreateFacilitatorFilesTable extends Migration
     {
         Schema::create('facilitator_files', function (Blueprint $table) {
             $table->id();
-            $table->string('loa');
-            $table->string('employercertificates')->nullable();
-            $table->string('educationcertificates')->nullable();
-            $table->string('avicertificates')->nullable();
-            $table->string('othercertificates')->nullable();
-            $table->string('diplomavalidity')->nullable();
+            $table->string('filename');
+            $table->unsignedBigInteger('facilitatorID');
+
+            $table->foreign('facilitatorID')->references('id')
+            ->on('facilitators')
+            ->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

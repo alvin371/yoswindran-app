@@ -91,17 +91,22 @@ class AccountController extends Controller
     public function update(Request $request, $id)
     {
         //
-        Account::where('id', $id)
-        ->updateOrCreate([
-            'name'=>$request->name,
-            'phone'=>$request->phone,
-            'gender'=>$request->gender,
-            'level'=>$request->level,
-            'email'=>$request->email,
-            'password'=>Hash::make($request->password),
-            'rememberToken'=>Hash::make($request->rememberToken),
-            'photo'=>$request->file('photo')->store('docs','public'),
-             ]);
+       
+
+
+        $account = Account::find($id);
+
+        $account->name = $request->name ? $request->name : $account->name;
+        $account->phone = $request->phone ? $request->phone : $account->phone;
+        $account->gender = $request->gender ? $request->gender : $account->gender;
+        $account->level = $request->level ? $request->level : $account->level;
+        $account->email = $request->email ? $request->email : $account->email;
+        $account->password = $request->password ? Hash::make($request->password) : $account->password;
+        $account->token = $request->token ? $request->token : $account->token;
+        $account->photo = $request->photo ? $request->file('photo')->store('docs','public') : $account->photo;
+        
+
+        $account->save();
         return redirect('account');
     }
 

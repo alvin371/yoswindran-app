@@ -34,10 +34,8 @@ class FacilitatorController extends Controller
     public function uploadFile($id)
     {
         //
-        $facilitator = DB::table('facilitator_files')->where('loa', '=', $id)->get();
-        foreach($facilitator as $f){
-        return view('facilitator.filestore', compact('f'));
-        }
+        $facilitator = Facilitator::find($id);
+        return view('facilitator.filestore', compact('facilitator'));
         // $member = DB::table('member_files')
         //         ->where('memberId', '=', $id)->get();
         // dd($member);
@@ -55,26 +53,6 @@ class FacilitatorController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
-            'name' => 'required',
-            'placebirth' => 'required',
-            'datebirth' => 'required',
-            'sex' => 'required',
-            'email' => 'required',
-            'maritalstatus' => 'required',
-            'religion' => 'required',
-            'address' => 'required',
-            'telephone' => 'required',
-            'language' => 'required',
-            'education' => 'required',
-            'recurrent' => 'required',
-            'initial' => 'required',
-            'eemployer' => 'required',
-            'educationdata' => 'required',
-            'avitraining' => 'required',
-            'othertraining' => 'required',
-            'diploma' => 'required',
-        ]);
 
         $facilitator = new Facilitator;
         $facilitator->idfacilitator = $request->idfacilitator;
@@ -98,10 +76,6 @@ class FacilitatorController extends Controller
         $facilitator->othertraining = $request->othertraining;
         $facilitator->diploma = $request->diploma;
 
-        $file = new FacilitatorFile;
-        $file->loa = $request->loa;
-
-        $file->save();
         $facilitator->save();
         // Facilitator::create([
         //     'name'=>$request->name,
@@ -143,13 +117,10 @@ class FacilitatorController extends Controller
         // return view('facilitator.detail', [
         //     'facilitator' => Facilitator::findOrFail($id)
         // ]);
-
-        $f = DB::table('facilitators')->join('facilitator_files','facilitators.loa','facilitator_files.loa')->get();
-        foreach($f as $facilitator){
-            return view('facilitator.detail', [
-                'facilitator' => $facilitator
-            ]);
-        }
+        $facilitator = Facilitator::with('FacilitatorFile')->find($id);
+        return view('facilitator.detail', [
+            'facilitator' => $facilitator
+        ]);
     }
 
     /**
@@ -265,9 +236,8 @@ class FacilitatorController extends Controller
     {
         //
         // Facilitator::destroy($id);
-
-        FacilitatorFile::where('loa', $id)->delete();
-        Facilitator::where('loa',$id)->delete();
+        $facilitator = Facilitator::find($id);
+        $facilitator->delete();
         return redirect('/facilitator')->with('success', 'Facilitator Deleted Successfully!');
     }
 }

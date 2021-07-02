@@ -16,54 +16,53 @@
         <hr>
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-            @foreach($members as $member)
                 <tr>
                     <td>Name</td>
-                    <td>{{$member->name}}</td>
+                    <td>{{$members->name}}</td>
                 </tr>
                 <tr>
                     <td>Place and Date of Birth</td>
-                    <td>{{$member->placebirth}}, {{$member->datebirth}}</td>
+                    <td>{{$members->placebirth}}, {{$members->datebirth}}</td>
                 </tr>
                 <tr>
                     <td>Sex</td>
-                    <td>{{$member->sex}}</td>
+                    <td>{{$members->sex}}</td>
                 </tr>
                 <tr>
                     <td>Marital Status</td>
-                    <td>{{$member->maritalstatus}}</td>
+                    <td>{{$members->maritalstatus}}</td>
                 </tr>
                 <tr>
                     <td>Religion</td>
-                    <td>{{$member->religion}}</td>
+                    <td>{{$members->religion}}</td>
                 </tr>
                 <tr>
                     <td>Home Address</td>
-                    <td>{{$member->address}}</td>
+                    <td>{{$members->address}}</td>
                 </tr>
                 <tr>
                     <td>Telephone No.</td>
-                    <td>{{$member->telephone}}</td>
+                    <td>{{$members->telephone}}</td>
                 </tr>
                 <tr>
                     <td>Position/Office</td>
-                    <td>{{$member->office}}</td>
+                    <td>{{$members->office}}</td>
                 </tr>
                 <tr>
                     <td>Training Languages</td>
-                    <td>{{$member->traininglag}}</td>
+                    <td>{{$members->traininglag}}</td>
                 </tr>
                 <tr>
                     <td>Latest Education</td>
-                    <td>{{$member->education}}</td>
+                    <td>{{$members->education}}</td>
                 </tr>
                 <tr>
                     <td>Practical Training</td>
-                    <td>{{$member->practical}}</td>
+                    <td>{{$members->practical}}</td>
                 </tr>
                 <tr>
                     <td>Initial Skill Training</td>
-                    <td>{{$member->initial}}</td>
+                    <td>{{$members->initial}}</td>
                 </tr>
         </div>
         <table class="table table-bordered">
@@ -72,22 +71,7 @@
             <hr>
             <tr>
                 <td>Employment Data </td>
-                <td colspan="2"><?php echo $member->eemployer; ?>
-            </tr>
-            <tr>
-                <td>Job/Responsibilities Uploaded File</td>
-                <td rowspan="10">
-                
-                <?php 
-                $file = $member->employment;
-                if($file === 'No file has uploaded yet'){
-                    echo 'No File has uploaded yet, We suggest you to upload file in yellow button on coloumn remark';
-                } else if($file != 'No file has uploaded yet'){?>
-                <iframe src="{{asset('storage/'.$member->employment)}}" frameborder="10">
-                <a href="{{asset('storage/'.$member->employment)}}">{{asset('storage/'.$member->employment)}}</a></iframe>
-                </td>
-                <td><a href="{{asset('storage/'.$member->employment)}}">File</a></td>
-                <?php } ?>
+                <td colspan="2"><?php echo $members->eemployer; ?>
             </tr>
         </table>
         <table class="table table-bordered">
@@ -96,21 +80,7 @@
             <hr>
             <tr>
                 <td>Education Data </td>
-                <td colspan="2"><?php echo $member->educationdata; ?>
-            </tr>
-            <tr>
-                <td>Education File Certificates</td>
-                <td rowspan="10">
-                <?php 
-                $file = $member->employment;
-                if($file === 'No file has uploaded yet'){
-                    echo 'No File has uploaded yet, We suggest you to upload file in yellow button on coloumn remark';
-                } else if($file != 'No file has uploaded yet'){?>
-                <iframe src="{{asset('storage/'.$member->educationcertificates)}}" frameborder="10">
-                <a href="{{asset('storage/'.$member->educationcertificates)}}">{{asset('storage/'.$member->educationcertificates)}}</a></iframe>
-                </td>
-                <td><a href="{{asset('storage/'.$member->educationcertificates)}}">File</a></td>
-                <?php } ?>
+                <td colspan="2"><?php echo $members->educationdata; ?>
             </tr>
         </table>
         <table class="table table-bordered">
@@ -119,21 +89,7 @@
             <hr>
             <tr>
                 <td>Aviation Training</td>
-                <td colspan="2"><?php echo $member->avitraining; ?>
-            </tr>
-            <tr>
-                <td>Aviation Training File</td>
-                <td rowspan="10">
-                <?php 
-                $file = $member->employment;
-                if($file === 'No file has uploaded yet'){
-                    echo 'No File has uploaded yet, We suggest you to upload file in yellow button on coloumn remark';
-                } else if($file != 'No file has uploaded yet'){?>
-                <iframe src="{{asset('storage/'.$member->aviationtraining)}}" frameborder="10">
-                <a href="{{asset('storage/'.$member->aviationtraining)}}">{{asset('storage/'.$member->aviationtraining)}}</a></iframe>
-                </td>
-                <td><a href="{{asset('storage/'.$member->aviationtraining)}}">File</a></td>
-                <?php } ?>
+                <td colspan="2"><?php echo $members->avitraining; ?>
             </tr>
         </table>
         <table class="table table-bordered">
@@ -142,21 +98,7 @@
             <hr>
             <tr>
                 <td>Other Training </td>
-                <td colspan="2"><?php echo $member->othertrainings; ?>
-            </tr>
-            <tr>
-                <td>Other Training File</td>
-                <td rowspan="10">
-                <?php 
-                $file = $member->employment;
-                if($file === 'No file has uploaded yet'){
-                    echo 'No File has uploaded yet, We suggest you to upload file in yellow button on coloumn remark';
-                } else if($file != 'No file has uploaded yet'){?>
-                <iframe src="{{asset('storage/'.$member->othertraining)}}" frameborder="10">
-                <a href="{{asset('storage/'.$member->othertraining)}}">{{asset('storage/'.$member->othertraining)}}</a></iframe>
-                </td>
-                <td><a href="{{asset('storage/'.$member->othertraining)}}">File</a></td>
-                <?php } ?>
+                <td></td>
             </tr>
         </table>
         <table class="table table-bordered">
@@ -165,23 +107,18 @@
             <hr>
             <tr>
                 <td>Diploma Licenses </td>
-                <td colspan="2"><?php echo $member->diploma; ?>
+                <td colspan="2"><?php echo $members->diploma; ?>
             </tr>
+        </table>
+        <table class="table table-bordered">
+            <hr>
+            <h4 class="text-primary text-uppercase">File</h4>
+            <hr>
             <tr>
-                <td>Diploma Licenses File</td>
-                <td rowspan="10">
-                <?php 
-                $file = $member->employment;
-                if($file === 'No file has uploaded yet'){
-                    echo 'No File has uploaded yet, We suggest you to upload file in yellow button on coloumn remark';
-                } else if($file != 'No file has uploaded yet'){?>
-                <iframe src="{{asset('storage/'.$member->diplomafile)}}" frameborder="10">
-                <a href="{{asset('storage/'.$member->diplomafile)}}">{{asset('storage/'.$member->diplomafile)}}</a></iframe>
-                </td>
-                <td><a href="{{asset('storage/'.$member->diplomafile)}}">File</a></td>
-                <?php } ?>
+                @foreach($members->memberfile as $row)
+                <img src="{{asset('storage/uploads/'.$row->filename)}}" alt="">
+                @endforeach
             </tr>
-            @endforeach
         </table>
         </table>
     </div>

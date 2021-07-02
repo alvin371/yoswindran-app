@@ -9,9 +9,9 @@ class Member extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    protected $primaryKey = 'id';
 
-    public function Member()
-    {
-        return $this->hasOne(MemberFile::class);
+    public function memberFile(){
+        return $this->hasMany("App\Models\MemberFile","memberID");
     }
 }

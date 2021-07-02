@@ -107,40 +107,89 @@
     </div>-->
 
     <!-- Services -->
-    <div class="services-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 mt-5">
-                    <h1>PRODUK KAMI</h1>
-                    <sub>
-                        <h3>OUR SERVICES</h3>
-                    </sub>
-                </div>
-            </div>
-            <div class="services-product">
-                <div class="row mt-5">
-                @foreach($blogManagement as $blog)
-                    <div class="col-sm-4 mt-5">
-                        <hr>
-                        <a href="{{url('/detailBlog/'.$blog->id)}}" style="text-decoration: ;">
-                            <img src="{{asset('storage/'.$blog->photo)}}" alt="{{$blog->title}}" style="object-fit: contain; height:200px;" class="rounded"></a>
-                        <a href="{{url('/detailBlog/'.$blog->id)}}" class="text-dark" style="text-decoration: none;">
-                            <h4>{{$blog->title}}</h4>
-                        </a>
-                        <a href="{{url('/detailBlog/'.$blog->id)}}" class="text-primary" style="text-decoration: none;">
-                            <p>{{$blog->postby}} | {{$blog->created_at}}</p>
-                        </a>
+    <!--<div class="services-1">-->
+    <!--    <div class="container">-->
+    <!--        <div class="row">-->
+    <!--            <div class="col-sm-12 mt-5">-->
+    <!--                <h1>PRODUK KAMI</h1>-->
+    <!--                <sub>-->
+    <!--                    <h3>OUR SERVICES</h3>-->
+    <!--                </sub>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--        <div class="services-product">-->
+    <!--            <div class="row mt-5">-->
+    <!--            @foreach($blogManagement as $blog)-->
+    <!--                <div class="col-sm-4 mt-5">-->
+    <!--                    <hr>-->
+    <!--                    <a href="{{url('/detailBlog/'.$blog->id)}}" style="text-decoration: ;">-->
+    <!--                        <img src="{{asset('storage/'.$blog->photo)}}" alt="{{$blog->title}}" style="object-fit: contain; height:200px; max-width:100%; object-position:center center;" class="rounded"></a>-->
+    <!--                    <a href="{{url('/detailBlog/'.$blog->id)}}" class="text-dark" style="text-decoration: none;">-->
+    <!--                        <h5>{{$blog->title}}</h5>-->
+    <!--                    </a>-->
+    <!--                    <a href="{{url('/detailBlog/'.$blog->id)}}" class="text-primary" style="text-decoration: none;">-->
+    <!--                        <p>{{$blog->postby}} | {{$blog->created_at}}</p>-->
+    <!--                    </a>-->
+    <!--                </div>-->
+    <!--                @endforeach-->
+    <!--            </div>-->
+    <!--            <div class="pagination mt-5">-->
+    <!--           {{ $blogManagement->onEachSide(5)->links() }}-->
+    <!--           </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</div>-->
+
+    <!-- End Services --> 
+    
+    
+     <!-- Services -->
+        <div class="services-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 mt-5">
+                        <h1>PRODUK KAMI</h1>
+                        <sub>
+                            <h3>OUR SERVICES</h3>
+                        </sub>
                     </div>
-                    @endforeach
                 </div>
-                <div class="pagination mt-5">
-               {{ $blogManagement->onEachSide(5)->links() }}
-               </div>
+                <div class="services-product">
+                    <div class="row">
+                    @foreach($blogManagement as $blog)
+                        <div class="col-md-4 mb-5">
+                            <div class="card" style="width: 18rem;">
+                              <img src="{{asset('storage/'.$blog->photo)}}" class="card-img-top" alt="...">
+                              <div class="card-body">
+                                <h5 class="card-title">{{$blog->title}}</h5>
+                                @if(auth()->user() == null)
+                                    <p class="card-text">{{$blog->desc}}</p>
+                                    <a href="{{url('/login')}}" class="btn btn-primary">Login to see Detail</a>
+                                @elseif(auth()->user() != null)
+                                    
+                                    @if((auth()->user()->level == 'superadmin') || (auth()->user()->level == 'admin1') || (auth()->user()->level == 'admin2') || (auth()->user()->level == 'paidmember'))
+                                    <p class="card-text">{{$blog->desc}}</p>
+                                    <a
+                                    href="{{url('/detailBlog/'.$blog->id)}}"
+                                    class="btn btn-primary">See Detail</a>
+                                    @else
+                                    <p class="card-text">{{$blog->desc}}</p>
+                                    <a href="{{url('/login')}}" class="btn btn-danger">Only paid member can see the detail</a>
+                                    @endif
+                                @endif
+                              </div>
+                            </div>
+                        </div>
+                    @endforeach
+                    </div>
+                    <div class="pagination mt-5 flex mx-auto justify-content-center">
+                   {{ $blogManagement->onEachSide(5)->links() }}
+                   </div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- End Services -->    
+    <!-- End Services -->   
 
 
 

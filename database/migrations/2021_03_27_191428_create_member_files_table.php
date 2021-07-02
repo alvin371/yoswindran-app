@@ -15,12 +15,13 @@ class CreateMemberFilesTable extends Migration
     {
         Schema::create('member_files', function (Blueprint $table) {
             $table->id();
-            $table->string('member_id');
-            $table->string('employment')->nullable();
-            $table->string('educationcertificates')->nullable();
-            $table->string('aviationtraining')->nullable();
-            $table->string('othertraining')->nullable();
-            $table->string('diplomafile')->nullable();
+            $table->string('filename');
+            $table->unsignedBigInteger('memberID');
+
+            $table->foreign('memberID')->references('id')
+            ->on('members')
+            ->onDelete('cascade')->onUpdate('cascade');
+
             $table->timestamps();
         });
     }

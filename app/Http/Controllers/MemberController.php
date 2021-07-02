@@ -38,14 +38,8 @@ class MemberController extends Controller
     public function uploadFile($id)
     {
         //
-        $member = DB::table('member_files')->where('member_id', '=', $id)->get();
-        foreach($member as $m){
-        return view('member.filestore', compact('m'));
-        }
-        // $member = DB::table('member_files')
-        //         ->where('memberId', '=', $id)->get();
-        // dd($member);
-        // return view('member.filestore', ['member' => $member]);
+        $member = Member::find($id);
+        return view('member.filestore', compact('member'));
 
     }
 
@@ -142,24 +136,11 @@ class MemberController extends Controller
         $member->othertrainings = $request->othertrainings;
         $member->diploma = $request->diploma;
 
-        
-        $file = new MemberFile;
-        $file->member_id = $request->member_id;
-        $file->employment = 'No file has uploaded yet';
-        $file->educationcertificates = 'No file has uploaded yet';
-        $file->aviationtraining = 'No file has uploaded yet';
-        $file->othertraining = 'No file has uploaded yet';
-        $file->diplomafile = 'No file has uploaded yet';
-
         $member->save();
-        $file->save();
         return redirect('/member')->with('success', 'Member Created Successfully!');
     }
 
-    public function uploadPhoto(Request $request)
-    {
 
-    }
     /**
      * Display the specified resource.
      *
@@ -170,7 +151,7 @@ class MemberController extends Controller
     {
         //
         // return view('member.detail', compact('member'));
-        $member = DB::table('members')->join('member_files','members.member_id','member_files.member_id')->where('members.member_id','=', $id)->get();
+        $member = Member::with('MemberFile')->find($id);
         return view('member.detail', [
             'members' => $member
         ]);
@@ -278,8 +259,6 @@ class MemberController extends Controller
         $member->othertrainings = $request->othertrainings ? $request->othertrainings : $member->othertrainings;
         $member->diploma = $request->diploma ? $request->diploma : $member->diploma;
 
-        
-
         $member->save();
         return redirect('member')->with('success', 'Member Edited Successfully!');
     }
@@ -292,10 +271,8 @@ class MemberController extends Controller
      */
     public function destroy($id)
     {
-        // //
-        // dd($id);
-        MemberFile::where('member_id', $id)->delete();
-        Member::where('member_id',$id)->delete();
+        $member = Member::find($id);
+        $member->delete();
         return redirect('/member')->with('success', 'Member Deleted Successfully!');
     }
 }

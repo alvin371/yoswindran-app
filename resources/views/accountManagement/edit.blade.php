@@ -16,7 +16,8 @@
         <hr>
         <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-        <form method="post" enctype="multipart/form-data" action="/account">
+        <form method="post" enctype="multipart/form-data" action="{{url('/account/'.$account->id)}}">
+        @method('patch')
         @csrf
                     <div class="form-group">
                         <div class="col-6">
@@ -60,7 +61,9 @@
                             <select class="form-control @error('level') is-invalid @enderror" id="level" name="level">
                             <?php $value=$account->level; ?>
                                 <option value="">Pick Account Level</option>
-                                <option value="admin" <?php if($value==='admin') echo 'selected="selected"';?>>Admin</option>
+                                <option value="superadmin" <?php if($value==='superadmin') echo 'selected="selected"';?>>Super Admin</option>
+                                <option value="admin1" <?php if($value==='admin1') echo 'selected="selected"';?>>Admin1</option>
+                                <option value="admin2" <?php if($value==='admin2') echo 'selected="selected"';?>>Admin2</option>
                                 <option value="member" <?php if($value==='member') echo 'selected="selected"';?>>Member</option>
                                 <option value="asesor" <?php if($value==='asesor') echo 'selected="selected"';?>>Asesor</option>
                                 <option value="facilitator" <?php if($value==='facilitator') echo 'selected="selected"';?>>Facilitator</option>

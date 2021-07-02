@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class MemberFile extends Model
 {
     use HasFactory;
-
     protected $guarded = [];
-    public function File()
-    {
-        return $this->belongsTo(Member::class);
+    protected $primaryKey ='id';
+
+    public function member(){
+        return $this->belongsTo("App\Models\Member","id");
     }
 }
