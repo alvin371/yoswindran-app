@@ -174,7 +174,7 @@
                                     class="btn btn-primary">See Detail</a>
                                     @else
                                     <p class="card-text">{{$blog->desc}}</p>
-                                    <a href="{{url('/login')}}" class="btn btn-danger">Only paid member can see the detail</a>
+                                    <a href="{{url('/login')}}" class="btn btn-success">Get Premium Member</a>
                                     @endif
                                 @endif
                               </div>

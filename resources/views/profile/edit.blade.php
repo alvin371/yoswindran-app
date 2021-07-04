@@ -32,6 +32,18 @@
                     </div>
                     <div class="form-group">
                         <div class="col-6">
+                            <label for="password">Change Password</label>
+                            <input type="password" class="form-control" name="password" id="password"">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-6">
+                            <label for="password">Password Confirmation</label>
+                            <input type="password" class="form-control" name="password" id="password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-6">
                             <label for="phone">Phone</label>
                             <input type="text" class="form-control" name="phone" id="phone"
                             value="{{$editData->phone}}">

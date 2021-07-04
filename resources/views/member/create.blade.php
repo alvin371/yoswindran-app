@@ -63,8 +63,8 @@
                                 <label for="sex">Sex</label>
                                 <select class="form-control  @error('sex') is-invalid @enderror" id="sex" name="sex">
                                     <option value="">Choose your own gender</option>
-                                    <option value="Male" <?php if($value==='Male') echo 'selected="selected"';?>>Male</option>
-                                    <option value="Female" <?php if($value==='Female') echo 'selected="selected"';?>>Female</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
                                 </select>
                                 @error('sex')
                                 <div id="sex" class="invalid-feedback">{{$message}}
@@ -100,12 +100,12 @@
                                 <select class="form-control  @error('religion') is-invalid @enderror" id="religion"
                                     name="religion">
                                     <option value="">Choose your own religion</option>
-                                    <option value="Islam" <?php if($value==='Islam') echo 'selected="selected"';?>>Islam</option>
-                                    <option value="Protestan" <?php if($value==='Protestan') echo 'selected="selected"';?>>Protestan</option>
-                                    <option value="Katolik" <?php if($value==='Katolik') echo 'selected="selected"';?>>Katolik</option>
-                                    <option value="Hindu" <?php if($value==='Hindu') echo 'selected="selected"';?>>Hindu</option>
-                                    <option value="Budha" <?php if($value==='Budha') echo 'selected="selected"';?>>Budha</option>
-                                    <option value="Konghucu" <?php if($value==='Konghucu') echo 'selected="selected"';?>>Konghucu</option>
+                                    <option value="Islam">Islam</option>
+                                    <option value="Protestan" >Protestan</option>
+                                    <option value="Katolik" >Katolik</option>
+                                    <option value="Hindu" >Hindu</option>
+                                    <option value="Budha">Budha</option>
+                                    <option value="Konghucu">Konghucu</option>
                                 </select>
                                 @error('religion')
                                 <div id="religion" class="invalid-feedback">{{$message}}
@@ -390,7 +390,7 @@
 <script>
     CKEDITOR.replace('eemployer');
     CKEDITOR.replace('educationdata');
-    CKEDITOR.replace('avitraining');
+    CKEDITOR.replace('avitrainings');
     CKEDITOR.replace('othertraining');
     CKEDITOR.replace('diploma');
 

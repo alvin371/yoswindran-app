@@ -23,7 +23,7 @@ class BlogManagementController extends Controller
     public function showBlog()
     {
         $companyProfileManagement = CompanyProfile::find(1);
-        $blogManagement = BlogManagement::paginate(6);
+        $blogManagement = BlogManagement::orderBy('id','desc')->paginate(6);
         $photos = BlogPhoto::find(1);
         return view('frontView.blog', compact('companyProfileManagement','blogManagement','photos'));
     }

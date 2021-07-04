@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Profile;
+use App\Models\User;
 class ProfileController extends Controller
 {
     /**
@@ -60,13 +61,10 @@ class ProfileController extends Controller
     public function edit($id)
     {
         //
-        $profile = DB::table('users')->where('id', '=', $id)->get();
-
-        foreach($profile as $editData){
-            return view('profile.edit', [
-                'editData' => $editData
-            ]);
-        }
+        $profile = User::find($id);
+        return view('profile.edit', [
+            'editData' => $profile
+        ]);
     }
     public function password(Profile $editData)
     {
@@ -95,23 +93,26 @@ class ProfileController extends Controller
     public function update(Request $request,$id)
     {
         //
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
-            'gender' => 'required',
-            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-        
-            Profile::where('id',$id)
-            ->update([
-                'name'=>$request->name,
-                'email'=>$request->email,
-                'phone'=>$request->phone,
-                'gender'=>$request->gender,
-                'photo'=>$request->file('photo')->store('docs','public'),
-                ]);
-                return redirect('/profile')->with('success', 'Profile Updated Successfully!');
+        $profile = User::find($id);
+        $profile->name =  $request->name ? $request->name : $profile-name;     
+        $profile->email =  $request->email ? $request->email : $profile-email;     
+        $profile->phone =  $request->phone ? $request->phone : $profile-phone;     
+        $profile->gender =  $request->gender ? $request->gender : $profile-gender;     
+        $profile->password =  $request->password ? $request->password : $profile-password;
+        $profile->photo = $request->photo ? $request->file('photo')->store('ProfilePicture','public') : $profile->photo;     
+
+        $profile->save();
+            // Profile::where('id',$id)
+            // ->update([
+            //     'name'=>$request->name,
+            //     'email'=>$request->email,
+            //     'phone'=>$request->phone,
+            //     'gender'=>$request->gender,
+            //     'photo'=>$request->file('photo')->store('docs','public'),
+            //     ]);
+
+
+        return redirect('/profile')->with('success', 'Profile Updated Successfully!');
             
     }
     /**

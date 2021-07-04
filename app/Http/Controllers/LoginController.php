@@ -144,7 +144,7 @@ class LoginController extends Controller
         $mail->host ='mail.yoswindran.web.id';
         $mail->SMTPAuth = true;
         $mail->Username = 'halo-aviators@yoswindran.web.id';
-        $mail->Password = 'keepithooman31';
+        $mail->Password = 'aviator_yoswindran';
         // $mail->SMTPSecure = 'ssl';
         $mail->SMTPOptions = array(
             'ssl' => array(
@@ -271,7 +271,7 @@ class LoginController extends Controller
         $mail->host ='mail.yoswindran.web.id';
         $mail->SMTPAuth = true;
         $mail->Username = 'halo-aviators@yoswindran.web.id';
-        $mail->Password = 'keepithooman31';
+        $mail->Password = 'aviator_yoswindran';
         // $mail->SMTPSecure = 'ssl';
         $mail->SMTPOptions = array(
             'ssl' => array(
@@ -288,6 +288,6 @@ class LoginController extends Controller
         $mail->Body = $body;
         $send = $mail->send();
 
-        return redirect('verification')->with('status','We have sent you an email, and your password has been reset!');
+        return redirect('login')->with('status','We have sent you an email, and your password has been reset!');
     }
 }

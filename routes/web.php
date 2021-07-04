@@ -183,8 +183,9 @@ Route::post('dropfile/member','App\Http\Controllers\MemberController@dropfile');
 
 
 
-Route::group(['middleware'=>['auth','ceklevel:superadmin,member,admin1,admin2']],function(){
+Route::group(['middleware'=>['auth','ceklevel:superadmin,member,admin1,admin2,asesor']],function(){
     Route::resource('profile','App\Http\Controllers\ProfileController');
+    Route::get('/profile/{editData}/password','App\Http\Controllers\ProfileController@password');
     Route::resource('member','App\Http\Controllers\MemberController');
     // Member file
     Route::get('/member/file/{member}','App\Http\Controllers\MemberController@uploadFile');
