@@ -50,7 +50,7 @@
                     </div>
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-12 d-flex justify-content-center">
                                 <div class="card" style="width: 18rem;">
                                     <img src="{{asset('storage/docs/'.$account->photo)}}" class="card-img-top" alt="...">
                                 </div>
