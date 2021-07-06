@@ -19,7 +19,7 @@ class CreateBlogmanagementTable extends Migration
             $table->string('photo');
             $table->text('desc');
             $table->string('postby');
-            $table->string('type');
+            $table->longText('type');
             $table->longText('content');
             $table->timestamps();
         });
