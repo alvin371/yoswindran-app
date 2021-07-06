@@ -55,6 +55,7 @@
                 </tfoot>
                 <tbody>
                 @foreach($asesor as $a)
+                @if(auth()->user()->level == "superadmin")
                     <tr>
                         <td>{{$a->name}}</td>
                         <td>{{$a->met}}</td>
@@ -80,6 +81,34 @@
                             </form>
                         </td>
                     </tr>
+                    @elseif(auth()->user()->name == $a->name)
+                    <tr>
+                        <td>{{$a->name}}</td>
+                        <td>{{$a->met}}</td>
+                        <td>{{$a->sertifikat}}</td>
+                        <td>{{$a->email}}</td>
+                        <td>{{$a->telephone}}</td>
+                        <td>
+                            <a href="{{url('/asesor/file/'.$a->id)}}" class="btn btn-warning btn-circle btn-sm">
+                                <i class="far fa-file-archive 3x"></i>
+                            </a>
+                            <a href="{{url('/asesor/'.$a->id.'/edit')}}" class="btn btn-primary btn-circle btn-sm">
+                                <i class="fas fa-pen"></i>
+                            </a>
+                            <a href="{{url('/asesor/'.$a->id)}}" class="btn btn-success">
+                                Data Lengkap
+                            </a>
+                            <form action="{{url('asesor/'.$a->id)}}" method="post">
+                            @method('delete')
+                            @csrf
+                                <button type="submit" class="btn btn-danger btn-circle btn-sm d-block" onclick="return confirm('Are you sure?')">
+                                        <i class="fa fa-trash"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    @endif
+
                     @endforeach
                 </tbody>
             </table>

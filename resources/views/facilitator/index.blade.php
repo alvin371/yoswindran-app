@@ -55,6 +55,7 @@
                 </tfoot>
                 <tbody>
                 @foreach($facilitator as $f)
+                @if(auth()->user()->level == "superadmin")
                     <tr>
                         <td>{{$f->name}}</td>
                         <td>{{$f->idfacilitator}}</td>
@@ -81,6 +82,34 @@
                             </form>
                         </td>
                     </tr>
+                @elseif(auth()->user()->name == $f->name)
+                    <tr>
+                            <td>{{$f->name}}</td>
+                            <td>{{$f->idfacilitator}}</td>
+                            <td>{{$f->loa}}</td>
+                            <td>{{$f->email}}</td>
+                            <td>{{$f->telephone}}</td>
+                            <td>
+                                <a href="{{url('/facilitator/file/'.$f->id)}}" class="btn btn-warning btn-circle btn-sm">
+                                    <i class="far fa-file-archive 3x"></i>
+                                </a>
+                                <a href="{{url('facilitator/'.$f->id.'/edit')}}"
+                                    class="btn btn-primary btn-circle btn-sm">
+                                    <i class="fas fa-pen"></i>
+                                </a>
+                                <a href="{{url('facilitator/'.$f->id)}}" class="btn btn-success">
+                                    Data Lengkap
+                                </a>
+                                <form action="{{url('facilitator/'.$f->id)}}" method="post">
+                                @method('delete')
+                                @csrf
+                                    <button type="submit" class="btn btn-danger btn-circle btn-sm d-block" onclick="return confirm('Are you sure?')">
+                                            <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endif
                     @endforeach
                 </tbody>
             </table>

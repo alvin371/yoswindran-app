@@ -55,6 +55,7 @@
                 </tfoot>
                 <tbody>
                 @foreach($trainer as $t)
+                @if(auth()->user()->level == "superadmin")
                     <tr>
                         <td>{{$t->name}}</td>
                         <td>{{$t->idtrainer}}</td>
@@ -77,6 +78,30 @@
                             </form>
                         </td>
                     </tr>
+                @elseif(auth()->user()->name == $t->name)
+                    <tr>
+                        <td>{{$t->name}}</td>
+                        <td>{{$t->idtrainer}}</td>
+                        <td>{{$t->loa}}</td>
+                        <td>{{$t->email}}</td>
+                        <td>{{$t->phone}}</td>
+                        <td>
+                            <a href="{{url('/trainer/'.$t->id.'/edit')}}" class="btn btn-primary btn-circle btn-sm">
+                                <i class="fas fa-pen"></i>
+                            </a>
+                            <a href="{{url('/trainer/'.$t->id)}}" class="btn btn-success">
+                                Data Lengkap
+                            </a>
+                            <form action="{{url('trainer/'.$t->id)}}" method="post">
+                            @method('delete')
+                            @csrf
+                                <button type="submit" class="btn btn-danger btn-circle btn-sm d-block" onclick="return confirm('Are you sure?')">
+                                        <i class="fa fa-trash"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    @endif
                 @endforeach
                 </tbody>
             </table>
