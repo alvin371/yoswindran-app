@@ -11,6 +11,7 @@
         <h2 class="m-0 font-weight-bold text-center text-primary">CURRICULUM VITAE</h2>
     </div>
     <div class="card-body">
+        <div class="btn btn-primary"><a href="{{url('/facilitator')}}" style="text-decoration:none;color:white;">Back</a></div>
         <hr>
         <h4 class="text-primary text-uppercase">Personal Data</h4>
         <hr>

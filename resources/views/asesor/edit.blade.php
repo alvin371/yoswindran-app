@@ -11,6 +11,7 @@
         <h6 class="m-0 font-weight-bold text-primary">Edit Data Asesor</h6>
     </div>
     <div class="card-body">
+        <div class="btn btn-primary"><a href="{{url('/asesor')}}" style="text-decoration:none;color:white;">Back</a></div>
         <hr>
         <h4 class="text-primary text-uppercase">Personal Data</h4>
         <hr>
@@ -313,116 +314,6 @@
         </div>
         </form>
         </table>
-        <div class="card-body">
-            <hr>
-            <h4 class="text-primary text-uppercase">Certificates Form Upload</h4>
-            <hr>
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <div class="upload-body">
-                        <div class="form-group">
-                            <h6 class="d-block ml-3">Upload Your Employer Certificates Here!</h6>
-                            <div class="col-12">
-                                <div class="input-group mb-3">
-                                    <div class="custom-file">
-                                        <input type="file"
-                                            class="custom-file-input @error('employercertificates') is-invalid @enderror"
-                                            name="employercertificates" id="employercertificates"
-                                            aria-describedby="inputGroupFileAddon01" multiple>
-                                        <label class="custom-file-label" for="employercertificates">Choose
-                                            file</label>
-                                        @error('employercertificates')
-                                        <div id="employercertificates" class="invalid-feedback">{{$message}}
-                                        </div>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="form-group">
-                            <h6 class="d-block ml-3">Upload Your Education Certificates Here!</h6>
-                            <div class="col-12">
-                                <div class="input-group mb-3">
-                                    <div class="custom-file">
-                                        <input type="file"
-                                            class="custom-file-input @error('educationcertificates') is-invalid @enderror"
-                                            name="educationcertificates" id="educationcertificates"
-                                            aria-describedby="inputGroupFileAddon01" multiple>
-                                        <label class="custom-file-label" for="educationcertificates">Choose
-                                            file</label>
-                                        @error('educationcertificates')
-                                        <div id="educationcertificates" class="invalid-feedback">{{$message}}
-                                        </div>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="form-group">
-                            <h6 class="d-block ml-3">Upload Your Aviation Training Certificates Here!</h6>
-                            <div class="col-12">
-                                <div class="input-group mb-3">
-                                    <div class="custom-file">
-                                        <input type="file"
-                                            class="custom-file-input @error('avicertificates') is-invalid @enderror"
-                                            name="avicertificates" id="avicertificates"
-                                            aria-describedby="inputGroupFileAddon01" multiple>
-                                        <label class="custom-file-label" for="avicertificates">Choose
-                                            file</label>
-                                        @error('avicertificates')
-                                        <div id="avicertificates" class="invalid-feedback">{{$message}}
-                                        </div>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <h6 class="d-block ml-3">Upload Your Other Training Certificates Here!</h6>
-                            <div class="col-12">
-                                <div class="input-group mb-3">
-                                    <div class="custom-file">
-                                        <input type="file"
-                                            class="custom-file-input @error('othercertificates') is-invalid @enderror"
-                                            name="othercertificates" id="othercertificates"
-                                            aria-describedby="inputGroupFileAddon01" multiple>
-                                        <label class="custom-file-label" for="othercertificates">Choose
-                                            file</label>
-                                        @error('othercertificates')
-                                        <div id="othercertificates" class="invalid-feedback">{{$message}}
-                                        </div>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="form-group">
-                            <h6 class="d-block ml-3">Upload Your License Validity Here!</h6>
-                            <div class="col-12">
-                                <div class="input-group mb-3">
-                                    <div class="custom-file">
-                                        <input type="file"
-                                            class="custom-file-input @error('licensevalidity') is-invalid @enderror"
-                                            name="licensevalidity" id="licensevalidity"
-                                            aria-describedby="inputGroupFileAddon01" multiple>
-                                        <label class="custom-file-label" for="licensevalidity">Choose
-                                            file</label>
-                                        @error('licensevalidity')
-                                        <div id="licensevalidity" class="invalid-feedback">{{$message}}
-                                        </div>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                </table>
-            </div>
-        </div>
     </div>
 </div>
 

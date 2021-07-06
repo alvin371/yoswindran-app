@@ -7,8 +7,9 @@
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Member File</h6>
         </div>
-
         <div class="card-body">
+            <div class="btn btn-primary"><a href="{{url('/member')}}" style="text-decoration:none;color:white;">Back</a></div>
+            <hr>
             <h4 class="text-primary text-uppercase">Certificates Form Upload</h4>
             <hr>
             <div class="table-responsive">

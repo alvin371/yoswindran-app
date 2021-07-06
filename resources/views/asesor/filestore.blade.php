@@ -9,6 +9,8 @@
         </div>
 
         <div class="card-body">
+            <div class="btn btn-primary"><a href="{{url('/asesor')}}" style="text-decoration:none;color:white;">Back</a></div>
+            <hr>
             <h4 class="text-primary text-uppercase">Certificates Form Upload</h4>
             <hr>
             <div class="table-responsive">

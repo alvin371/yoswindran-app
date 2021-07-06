@@ -11,6 +11,7 @@
             <h6 class="m-0 font-weight-bold text-primary">Add Member</h6>
         </div>
         <div class="card-body">
+            <div class="btn btn-primary"><a href="{{url('/member')}}" style="text-decoration:none;color:white;">Back</a></div>
             <hr>
             <h4 class="text-primary text-uppercase">Personal Data</h4>
             <hr>
@@ -18,6 +19,7 @@
                 @csrf
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <p style="font-size:16px; font-weight:100;"><em>*Note</em> You can add ("-")" for uncertain data. Please fill in all the forms provided</p>
                         <div class="form-group">
                             <div class="col-6">
                                 <label for="name">Name</label>

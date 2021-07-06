@@ -11,6 +11,7 @@
         <h6 class="m-0 font-weight-bold text-primary">Edit Trainer</h6>
     </div>
     <div class="card-body">
+        <div class="btn btn-primary"><a href="{{url('/trainer')}}" style="text-decoration:none;color:white;">Back</a></div>
         <hr>
         <h4 class="text-primary text-uppercase">Personal Data</h4>
         <hr>

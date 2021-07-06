@@ -58,7 +58,7 @@
                     <span>PROFILE</span>
                 </a>
             </li>
-            @if((auth()->user()->level == "superadmin") || (auth()->user()->level == "member") || (auth()->user()->level == "admin1") || (auth()->user()->level == "admin2"))
+            @if((auth()->user()->level == "superadmin") || (auth()->user()->level == "member") || (auth()->user()->level == "admin1") || (auth()->user()->level == "admin2") || (auth()->user()->level == "asesor") || (auth()->user()->level == "facilitator") || (auth()->user()->level == "trainer"))
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/member')}}">
@@ -85,8 +85,9 @@
             </li>
             @endif
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
             @if((auth()->user()->level == "superadmin") || (auth()->user()->level == "trainer") )
+            
+            <li class="nav-item">
                 <a class="nav-link" href="{{url('/trainer')}}">
                     <i class="fas fa-users "></i>
                     <span>TRAINER</span></a>

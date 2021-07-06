@@ -12,9 +12,12 @@
             <h4 class="text-primary text-uppercase">Certificates Form Upload</h4>
             <hr>
             <div class="table-responsive">
-                <div class="d-flex flex justify-content-start my-5">
+                <div class="btn btn-primary"><a href="{{url('/facilitator')}}" style="text-decoration:none;color:white;">Back</a></div>
+                <hr>
+                <div class="d-flex flex justify-content-start my-2">
                     <button class="btn btn-primary" id="add_btn"><i class="fas fa-plus-square"></i> Add Input Form</button>
                 </div>
+                <hr>
                 <form action="/file/{{$facilitator->id}}/uploadFacilitator" method="post" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" value="{{$facilitator->id}}" name="facilitatorID">

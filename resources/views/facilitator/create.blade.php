@@ -11,11 +11,13 @@
         <h6 class="m-0 font-weight-bold text-primary">Add Facilitator</h6>
     </div>
     <div class="card-body">
+        <div class="btn btn-primary"><a href="{{url('/facilitator')}}" style="text-decoration:none;color:white;">Back</a></div>
         <hr>
         <h4 class="text-primary text-uppercase">Personal Data</h4>
         <hr>
         <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <p style="font-size:16px; font-weight:100;"><em>*Note</em> You can add ("-")" for uncertain data. Please fill in all the forms provided</p>
         <form method="post" enctype="multipart/form-data" action="/facilitator">
         @csrf
                     <div class="form-group">
@@ -70,8 +72,8 @@
                             <label for="sex">Sex</label>
                             <select class="form-control @error('sex') is-invalid @enderror" id="sex" name="sex" value="{{old('sex')}}" required>
                                 <option value="">Choose your own gender</option>
-                                <option value="Male" <?php if($value==='Male') echo 'selected="selected"';?>>Male</option>
-                                <option value="Female" <?php if($value==='Female') echo 'selected="selected"';?>>Female</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
                             </select>
                             @error('sex')
                                 <div id="sex" class="invalid-feedback">{{$message}}
@@ -104,12 +106,12 @@
                             <label for="religion">Religion</label>
                             <select class="form-control @error('religion') is-invalid @enderror" id="religion" name="religion" value="{{old('religion')}}" required>
                                 <option value="">Choose your own religion</option>
-                                <option value="Islam" <?php if($value==='Islam') echo 'selected="selected"';?>>Islam</option>
-                                <option value="Protestan" <?php if($value==='Protestan') echo 'selected="selected"';?>>Protestan</option>
-                                <option value="Katolik" <?php if($value==='Katolik') echo 'selected="selected"';?>>Katolik</option>
-                                <option value="Hindu" <?php if($value==='Hindu') echo 'selected="selected"';?>>Hindu</option>
-                                <option value="Budha" <?php if($value==='Budha') echo 'selected="selected"';?>>Budha</option>
-                                <option value="Konghucu" <?php if($value==='Konghucu') echo 'selected="selected"';?>>Konghucu</option>
+                                <option value="Islam">Islam</option>
+                                <option value="Protestan">Protestan</option>
+                                <option value="Katolik">Katolik</option>
+                                <option value="Hindu">Hindu</option>
+                                <option value="Budha">Budha</option>
+                                <option value="Konghucu">Konghucu</option>
                             </select>
                             @error('religion')
                                 <div id="religion" class="invalid-feedback">{{$message}}
