@@ -132,7 +132,7 @@
                     <span>BLOG MANAGEMENT</span></a>
             </li>
             @endif
-            @if((auth()->user()->level == "superadmin") || (auth()->user()->level == "admin2"))
+            @if((auth()->user()->level == "superadmin"))
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/companyProfileManagement')}}">
                     <i class="fas fa-tools"></i>
@@ -146,7 +146,7 @@
                     <span>ACCOUNT MANAGEMENT</span></a>
             </li>
             @endif
-            @if((auth()->user()->level == "superadmin") || (auth()->user()->level == "admin2"))
+            @if((auth()->user()->level == "superadmin"))
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/photogallery')}}">
                     <i class="fas fa-tools"></i>
