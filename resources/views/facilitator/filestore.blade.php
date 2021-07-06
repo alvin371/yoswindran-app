@@ -32,6 +32,19 @@
                     <button type="submit" class="btn btn-outline-danger my-5"><i class="fas fa-upload"></i>   Submit</button>
                 </form>
             </div>
+            <div class="mx-2 d-flex justify-content-center">
+                <table class="table table-bordered">
+                    <hr>
+                    <h4 class="text-primary text-uppercase">File</h4>
+                    <hr>
+                    <tr>
+                        @foreach($facilitator->facilitatorFile as $row)
+                        
+                        <a href="{{asset('storage/FacilitatorFile/'.$row->filename)}}" style="margin:40px;">{{$row->filename}}</a>
+                        @endforeach
+                    </tr>
+                </table>
+            </div>
         </div>
             <hr>
         </div>
@@ -97,15 +110,22 @@
 <!-- Page level custom scripts -->
 <script src="{{asset('css/Admin/js/demo/datatables-demo.js')}}"></script>
 <script>
-    $(".reveal").on('click', function () {
-        var $pwd = $(".pwd");
-        if ($pwd.attr('type') === 'password') {
-            $pwd.attr('type', 'text');
-        } else {
-            $pwd.attr('type', 'password');
-        }
-    });
-
+    $(document).ready(function(){
+        $('#add_btn').on('click', function(){
+            var html = `<div class="d-flex flex-wrap">
+                        <div class="custom-file col-10">
+                            <input type="file" class="custom-file-input" multiple name="file[]">
+                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                        </div>
+                            <i class="far fa-times-circle btn-outline-danger" id="remove" style="font-size:40px;cursor:pointer;margin-left:10px;"></i>
+                        
+                    </div>`
+            $('.form-file').append(html);
+        })
+    })
+    $(document).on("click",'#remove',function(){
+        $(this).parent().remove()
+    })
 </script>
 <script>    
     $('.custom-file-input').on('change', function () {

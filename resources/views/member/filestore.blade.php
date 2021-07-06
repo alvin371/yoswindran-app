@@ -30,6 +30,19 @@
                     <button type="submit" class="btn btn-outline-danger my-5"><i class="fas fa-upload"></i>   Submit</button>
                 </form>
             </div>
+            <div class="row">
+                <table class="table table-bordered">
+                    <hr>
+                    <h4 class="text-primary text-uppercase">File</h4>
+                    <hr>
+                    <tr>
+                        @foreach($member->memberfile as $row)
+                        
+                        <a href="{{asset('storage/MemberFile/'.$row->filename)}}" style="margin:40px;">{{$row->filename}}</a>
+                        @endforeach
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
     <hr>

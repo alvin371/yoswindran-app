@@ -31,6 +31,19 @@
                     <button type="submit" class="btn btn-outline-danger my-5"><i class="fas fa-upload"></i>   Submit</button>
                 </form>
             </div>
+                <div class="mx-2 d-flex justify-content-center">
+                    <table class="table table-bordered">
+                        <hr>
+                        <h4 class="text-primary text-uppercase">File</h4>
+                        <hr>
+                        <tr>
+                            @foreach($asesor->asesorFile as $row)
+                            
+                            <a href="{{asset('storage/AsesorFile/'.$row->filename)}}" style="margin:40px;">{{$row->filename}}</a>
+                            @endforeach
+                        </tr>
+                    </table>
+                </div>
         </div>
             <hr>
         </div>
